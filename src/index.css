@@ -1,15 +1,25 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
-@import "@fontsource-variable/geist";
+@import "@fontsource-variable/league-spartan/wght.css";
+@import "@fontsource/vt323/latin-400.css";
+@import "@fontsource/vt323/latin-ext-400.css";
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-    --color-brand-yellow: var(--brand-yellow);
-    --color-brand-dark: var(--brand-dark);
+    --color-yellow: var(--yellow);
+    --color-yellow-tint: var(--yellow-tint);
+    --color-ink: var(--ink);
+    --color-ink-muted: var(--ink-muted);
+    --color-paper: var(--paper);
+    --color-paper-alt: var(--paper-alt);
+    --color-line: var(--line);
+    --font-display: "League Spartan Variable", "Futura", "Century Gothic", sans-serif;
+    --font-pixel: "VT323", "Courier New", monospace;
+    --shadow-offset: 4px 4px 0 var(--ink);
     --font-heading: var(--font-sans);
-    --font-sans: 'Geist Variable', sans-serif;
+    --font-sans: var(--font-display);
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -51,75 +61,49 @@
 }
 
 :root {
-    /* Git Happens brand (from documents/.latex/gh.cls + Logo.png) */
-    --brand-yellow: #ffbd00;
-    --brand-dark: #2b2d42;
-    --background: #ffffff;
-    --foreground: var(--brand-dark);
-    --card: #ffffff;
-    --card-foreground: var(--brand-dark);
-    --popover: #ffffff;
-    --popover-foreground: var(--brand-dark);
-    --primary: var(--brand-yellow);
-    --primary-foreground: var(--brand-dark);
-    --secondary: #f1f1f4;
-    --secondary-foreground: var(--brand-dark);
-    --muted: #f1f1f4;
-    --muted-foreground: #6b6d80;
-    --accent: #fff3cc;
-    --accent-foreground: var(--brand-dark);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: #e3e3e9;
-    --input: #e3e3e9;
-    --ring: var(--brand-yellow);
-    --chart-1: var(--brand-yellow);
-    --chart-2: var(--brand-dark);
-    --chart-3: #6b6d80;
-    --chart-4: #b38400;
-    --chart-5: #c9cad6;
-    --radius: 0.625rem;
-    --sidebar: #f7f7f9;
-    --sidebar-foreground: var(--brand-dark);
-    --sidebar-primary: var(--brand-dark);
-    --sidebar-primary-foreground: #ffffff;
-    --sidebar-accent: #fff3cc;
-    --sidebar-accent-foreground: var(--brand-dark);
-    --sidebar-border: #e3e3e9;
-    --sidebar-ring: var(--brand-yellow);
-}
+    /* git HAPPENS design system (tokens.json): flat ink on paper, yellow as a field */
+    --yellow: #ffbd00;
+    --yellow-tint: #fff2c2;
+    --ink: #000000;
+    --ink-muted: #4a4a4a;
+    --paper: #ffffff;
+    --paper-alt: #f6f4ee;
+    --line: #000000;
+    --conflict: #c62828;
 
-.dark {
-    --background: #1e1f2e;
-    --foreground: #f5f5f7;
-    --card: var(--brand-dark);
-    --card-foreground: #f5f5f7;
-    --popover: var(--brand-dark);
-    --popover-foreground: #f5f5f7;
-    --primary: var(--brand-yellow);
-    --primary-foreground: var(--brand-dark);
-    --secondary: #3a3c56;
-    --secondary-foreground: #f5f5f7;
-    --muted: #3a3c56;
-    --muted-foreground: #a3a5b8;
-    --accent: #3a3c56;
-    --accent-foreground: #f5f5f7;
-    --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: var(--brand-yellow);
-    --chart-1: var(--brand-yellow);
-    --chart-2: #c9cad6;
-    --chart-3: #6b6d80;
-    --chart-4: #b38400;
-    --chart-5: #3a3c56;
-    --sidebar: var(--brand-dark);
-    --sidebar-foreground: #f5f5f7;
-    --sidebar-primary: var(--brand-yellow);
-    --sidebar-primary-foreground: var(--brand-dark);
-    --sidebar-accent: #3a3c56;
-    --sidebar-accent-foreground: #f5f5f7;
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: var(--brand-yellow);
+    --background: var(--paper);
+    --foreground: var(--ink);
+    --card: var(--paper);
+    --card-foreground: var(--ink);
+    --popover: var(--paper);
+    --popover-foreground: var(--ink);
+    --primary: var(--yellow);
+    --primary-foreground: var(--ink);
+    --secondary: var(--paper-alt);
+    --secondary-foreground: var(--ink);
+    --muted: var(--paper-alt);
+    --muted-foreground: var(--ink-muted);
+    --accent: var(--yellow-tint);
+    --accent-foreground: var(--ink);
+    --destructive: var(--conflict);
+    --border: var(--line);
+    --input: var(--line);
+    --ring: var(--ink);
+    --chart-1: var(--yellow);
+    --chart-2: var(--ink);
+    --chart-3: var(--ink-muted);
+    --chart-4: var(--yellow-tint);
+    --chart-5: var(--paper-alt);
+    /* design: 6px on buttons/chips (rounded-lg here), square panels (rounded-none), pill tags */
+    --radius: 0.375rem;
+    --sidebar: var(--paper-alt);
+    --sidebar-foreground: var(--ink);
+    --sidebar-primary: var(--yellow);
+    --sidebar-primary-foreground: var(--ink);
+    --sidebar-accent: var(--yellow-tint);
+    --sidebar-accent-foreground: var(--ink);
+    --sidebar-border: var(--line);
+    --sidebar-ring: var(--ink);
 }
 
 @layer base {
@@ -132,4 +116,5 @@
   html {
     @apply font-sans;
     }
+
 }
