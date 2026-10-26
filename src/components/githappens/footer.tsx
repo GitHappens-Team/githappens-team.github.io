@@ -29,9 +29,7 @@ export default function Footer() {
 			<div className="border-t-2 border-ink">
 				<div className="mx-auto flex max-w-[1200px] flex-wrap justify-between gap-x-6 gap-y-2 px-4 py-4 text-sm font-medium md:px-10">
 					<span>© {new Date().getFullYear()} git HAPPENS</span>
-					<span>
-						I documenti sono serviti dalla cartella <span className="font-pixel text-lg">pdf/</span>
-					</span>
+					<span>Software Engineering 2026/2027 - corso di Informatica presso UniPD</span>
 				</div>
 			</div>
 		</footer>
