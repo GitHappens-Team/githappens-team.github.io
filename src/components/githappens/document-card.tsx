@@ -1,13 +1,7 @@
 import { fileUrl, type ManifestFile } from "@/lib/hooks/use-manifest";
-import { cn } from "@/lib/utils";
+import { cn, humanize } from "@/lib/utils";
 import { ArrowRightIcon, FileIcon } from "../icons";
 import { Badge } from "../ui/badge";
-
-// "project-proposal" -> "Project proposal"
-const titleFromName = (name: string) => {
-	const spaced = name.replace(/[-_]+/g, " ").trim();
-	return spaced.charAt(0).toUpperCase() + spaced.slice(1);
-};
 
 type DocumentCardProps = Omit<React.ComponentProps<"a">, "href" | "title"> & {
 	file: ManifestFile;
@@ -21,7 +15,7 @@ type DocumentCardProps = Omit<React.ComponentProps<"a">, "href" | "title"> & {
 // shadow grows and the ground turns yellow-tint.
 export function DocumentCard({ file, title, summary, className, ...props }: DocumentCardProps) {
 	// metadata (when the manifest has it) > humanised file name
-	const heading = title ?? file.metadata?.title ?? titleFromName(file.name);
+	const heading = title ?? file.metadata?.title ?? humanize(file.name);
 	const description = summary ?? file.metadata?.description;
 
 	return (

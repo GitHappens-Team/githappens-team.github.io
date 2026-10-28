@@ -2,6 +2,7 @@ import { useManifest, type Category } from "@/lib/hooks/use-manifest";
 import { Badge } from "../ui/badge";
 import { DocumentCard } from "./document-card";
 import { Button } from "../ui/button";
+import { humanize } from "@/lib/utils";
 
 /** DOM id of a category section, used by the chips to jump to it. */
 const categoryAnchor = (id: string) => `cat-${id.trim().toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
@@ -13,7 +14,7 @@ function Categories({ groups }: { groups: Category[] }) {
 			{groups.map((g) => (
 				<Button key={g.id} asChild variant="chip">
 					<a href={`#${categoryAnchor(g.id)}`}>
-						<span>{g.id}</span>
+						<span>{humanize(g.id)}</span>
 						<span className="text-sm font-light">{g.files.length} documenti</span>
 					</a>
 				</Button>
@@ -28,7 +29,7 @@ function DocumentCategory({ category }: { category: Category }) {
 			<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b-2 border-ink pb-4">
 				<div className="flex flex-col">
 					<span className="text-ink-muted font-pixel text-2xl">pdf/{category.id.replaceAll(" ", "_")}/</span>
-					<h3 className="uppercase font-bold text-3xl">{category.id}</h3>
+					<h3 className="font-bold text-3xl">{humanize(category.id)}</h3>
 				</div>
 				<Badge>{category.files.length} documenti</Badge>
 			</div>
