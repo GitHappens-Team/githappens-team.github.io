@@ -8,7 +8,7 @@
           "path": "candidatura/lettera_candidatura/lettera_candidatura.pdf",
           "folder": "lettera_candidatura",
           "size": 567525,
-          "modified": "2026-11-03T16:01:16.293Z",
+          "modified": "2026-11-03T16:30:47.612Z",
           "metadata": {
             "title": "Lettera di presentazione",
             "important": true,
@@ -33,22 +33,22 @@
           "path": "candidatura/preventivo_costi/preventivo_costi.pdf",
           "folder": "preventivo_costi",
           "size": 562682,
-          "modified": "2026-11-03T16:01:16.296Z",
+          "modified": "2026-11-03T16:30:47.614Z",
           "metadata": {
-            "title": "Preventivo costi e assunzione impegni",
+            "title": "Dichiarazione impegni",
             "important": true,
             "version": {
               "version": "1.0.0",
-              "atTimestamp": "2026-10-30T15:14:05.000Z"
+              "atTimestamp": "2026-11-03T00:00:00.000Z"
             },
             "createdAt": "2026-10-30T15:03:01.000Z",
             "approved": {
-              "approvedAt": "2026-10-30T15:14:05.000Z",
+              "approvedAt": "2026-11-03T15:52:54.000Z",
               "by": [
                 "PGgabbo"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/8",
-              "prNumber": 8
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/19",
+              "prNumber": 19
             }
           }
         },
@@ -57,7 +57,7 @@
           "path": "candidatura/valutazione_capitolati/valutazione_capitolati.pdf",
           "folder": "valutazione_capitolati",
           "size": 577195,
-          "modified": "2026-11-03T16:01:16.299Z",
+          "modified": "2026-11-03T16:30:47.616Z",
           "metadata": {
             "title": "Valutazione capitolati",
             "important": true,
@@ -182,7 +182,7 @@
           "path": "verbali/interni/2026-10-16/2026-10-16.pdf",
           "folder": "interni/2026-10-16",
           "size": 540756,
-          "modified": "2026-11-03T16:01:16.307Z",
+          "modified": "2026-11-03T16:30:47.619Z",
           "metadata": {
             "title": "Verbale interno del 16 ottobre 2026",
             "description": "Prima riunione interna. Accordi iniziali sul way of working e le piattaforme di comunicazione, sondaggio sull'interesse del team nei vari capitolati.",
@@ -206,7 +206,7 @@
           "path": "verbali/interni/2026-10-20/2026-10-20.pdf",
           "folder": "interni/2026-10-20",
           "size": 537954,
-          "modified": "2026-11-03T16:01:16.311Z",
+          "modified": "2026-11-03T16:30:47.622Z",
           "metadata": {
             "title": "Verbale interno del 20 ottobre 2026",
             "description": "Riunione interna del team. Gestione ruoli del periodo, creazione di template di verbale e definizione prossimo incontro.",
@@ -230,7 +230,7 @@
           "path": "verbali/interni/2026-10-30/2026-10-30.pdf",
           "folder": "interni/2026-10-30",
           "size": 528847,
-          "modified": "2026-11-03T16:01:16.314Z",
+          "modified": "2026-11-03T16:30:47.625Z",
           "metadata": {
             "title": "Verbale interno del 30 ottobre 2026",
             "description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura.",
@@ -259,7 +259,7 @@
           "path": "way_of_working/definizione/definizione.pdf",
           "folder": "definizione",
           "size": 639658,
-          "modified": "2026-11-03T16:01:16.316Z",
+          "modified": "2026-11-03T16:30:47.627Z",
           "metadata": {
             "title": "Definizione del Way Of Working",
             "important": true,
@@ -268,7 +268,7 @@
               "version": "0.0.1",
               "atTimestamp": "2026-10-28T00:00:00.000Z"
             },
-            "createdAt": "2026-10-28T00:00:00.000Z",
+            "createdAt": "2026-10-28T15:43:52.000Z",
             "approved": {
               "approvedAt": "2026-10-28T15:42:45.000Z",
               "by": [
