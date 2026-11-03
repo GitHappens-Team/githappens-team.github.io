@@ -2,10 +2,12 @@ import { useManifest, type Category, type ManifestFile } from "@/lib/hooks/use-m
 import { Badge } from "../ui/badge";
 import { DocumentCard } from "./document-card";
 import { Button } from "../ui/button";
-import { humanize } from "@/lib/utils";
+import { cn, humanize } from "@/lib/utils";
 import { useMemo } from "react";
 import { docMatchesQuery, useSearch } from "@/lib/hooks/search";
 import { SearchBar } from "./search-bar";
+import { useWrapped } from "@/lib/hooks/use-wrapped";
+import { SeenDocumentsProvider, useSeenDocuments } from "@/lib/hooks/use-seen-documents";
 
 /** DOM id of a category section, used by the chips to jump to it. */
 const categoryAnchor = (id: string) =>
@@ -15,10 +17,20 @@ const categoryAnchor = (id: string) =>
 		.replaceAll(/[^a-z0-9]+/g, "-")}`;
 
 function CategoryAnchors({ groups }: { groups: Category[] }) {
+	// spread apart while search and chips share a row, centered once they stack
+	const [ref, wrapped] = useWrapped<HTMLElement>();
+
 	return (
-		<nav aria-label="Categorie" className="flex flex-wrap justify-between items-center gap-2 bg-muted p-4 border-b-2 border-ink">
+		<nav
+			ref={ref}
+			aria-label="Categorie"
+			className={cn(
+				"flex flex-wrap items-center gap-x-8 gap-y-2 bg-muted p-4 border-b-2 border-ink",
+				wrapped ? "justify-center" : "justify-between",
+			)}
+		>
 			<SearchBar className="w-100 max-w-full" />
-			<div className="flex flex-wrap items-center gap-2 p-4">
+			<div className={cn("flex flex-wrap items-center gap-2 p-4", wrapped && "justify-center")}>
 				<span className="font-pixel text-2xl p-2">categorie</span>
 				{groups.map((g) => (
 					<Button key={g.id} asChild variant="chip">
@@ -137,28 +149,31 @@ export default function Docs() {
 	const { status, manifest } = useManifest();
 	const { query } = useSearch();
 	const groups = useMemo(() => (manifest ? filterGroups(manifest.groups, query) : []), [manifest, query]);
+	const seen = useSeenDocuments(manifest);
 
 	return (
-		<section className="flex flex-col gap-4 mb-10" id="docs">
-			{status === "loading" && <Message role="status">Carico i documenti…</Message>}
-			{status === "error" && <Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>}
-			{manifest &&
-				(manifest.groups.length ? (
-					<>
-						<CategoryAnchors groups={groups} />
-						{groups.length ? (
-							<div className="flex flex-col gap-12 p-4">
-								{groups.map((g) => (
-									<DocumentCategory key={g.id} category={g} />
-								))}
-							</div>
-						) : (
-							<Message role="status">Nessun documento corrisponde a “{query.trim()}”.</Message>
-						)}
-					</>
-				) : (
-					<Message>Nessun documento disponibile per ora.</Message>
-				))}
-		</section>
+		<SeenDocumentsProvider value={seen}>
+			<section className="flex flex-col gap-4 mb-10" id="docs">
+				{status === "loading" && <Message role="status">Carico i documenti…</Message>}
+				{status === "error" && <Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>}
+				{manifest &&
+					(manifest.groups.length ? (
+						<>
+							<CategoryAnchors groups={groups} />
+							{groups.length ? (
+								<div className="flex flex-col gap-12 p-4">
+									{groups.map((g) => (
+										<DocumentCategory key={g.id} category={g} />
+									))}
+								</div>
+							) : (
+								<Message role="status">Nessun documento corrisponde a “{query.trim()}”.</Message>
+							)}
+						</>
+					) : (
+						<Message>Nessun documento disponibile per ora.</Message>
+					))}
+			</section>
+		</SeenDocumentsProvider>
 	);
 }
