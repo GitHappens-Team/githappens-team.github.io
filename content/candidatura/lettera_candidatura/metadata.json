@@ -1,18 +1,18 @@
 {
 	"title": "Lettera di presentazione",
-	"description": "Lettera di candidatura del gruppo Git Happens per il capitolato C0 AIRA di Sanmarco Informatica S.p.A.",
+	"description": "Lettera di candidatura del gruppo Git Happens per il capitolato C8 Sonar di Halue S.r.l. Società Benefit",
 	"important": true,
 	"version": {
 		"version": "1.0.0",
-		"atTimestamp": "2026-10-30T15:28:35Z"
+		"atTimestamp": "2026-11-03T18:30:00Z"
 	},
 	"createdAt": "2026-10-30T15:28:35Z",
 	"approved": {
-		"approvedAt": "2026-11-03T16:33:26Z",
+		"approvedAt": "2026-11-03T17:51:44Z",
 		"by": [
 			"PGgabbo"
 		],
-		"prLink": "https://github.com/GitHappens-Team/documents/pull/23",
-		"prNumber": 23
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/29",
+		"prNumber": 29
 	}
 }
