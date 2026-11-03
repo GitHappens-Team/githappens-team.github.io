@@ -1,4 +1,16 @@
 {
 	"title": "Lettera di presentazione",
-	"description": "Lettera di candidatura del gruppo Git Happens per il capitolato C0 AIRA di Sanmarco Informatica S.p.A."
+	"description": "Lettera di candidatura del gruppo Git Happens per il capitolato C0 AIRA di Sanmarco Informatica S.p.A.",
+	"createdAt": "2026-10-30T15:28:35Z",
+	"approved": {
+		"approvedAt": "2026-10-30T15:28:35Z",
+		"by": ["marameo0"],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/11",
+		"prNumber": 11
+	},
+	"important": true,
+	"version": {
+		"version": "1.0.0",
+		"atTimestamp": "2026-10-30T15:28:35Z"
+	}
 }

@@ -1,4 +1,17 @@
 {
 	"title": "Preventivo costi e assunzione impegni",
-	"description": ""
+	"description": "",
+	"createdAt": "2026-10-30T15:03:01Z",
+	"important": true,
+	"approved": {
+		"approvedAt": "2026-10-30T15:14:05Z",
+		"by": ["PGgabbo"],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/8",
+		"prNumber": 8
+	},
+
+	"version": {
+		"version": "1.0.0",
+		"atTimestamp": "2026-10-30T15:14:05Z"
+	}
 }
