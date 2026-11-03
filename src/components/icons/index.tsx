@@ -62,3 +62,15 @@ export const MailIcon = (props: IconProps) => (
     <path d="M3 7l9 7 9-7" />
   </Icon>
 )
+
+export const ChevronLeftIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M15 6l-6 6 6 6" />
+  </Icon>
+)
+
+export const ChevronRightIcon = (props: IconProps) => (
+  <Icon {...props}>
+    <path d="M9 6l6 6-6 6" />
+  </Icon>
+)

@@ -10,6 +10,9 @@ export default function Navigation() {
 				<Button asChild variant="link">
 					<a href="#docs">Documenti</a>
 				</Button>
+				<Button asChild variant="link">
+					<a href="#team">Team</a>
+				</Button>
 				<Button asChild>
 					<a href="https://github.com/GitHappens-Team" target="_blank" rel="noreferrer">
 						<GitHubIcon className="size-4" /> GitHub
