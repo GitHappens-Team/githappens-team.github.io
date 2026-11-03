@@ -53,16 +53,18 @@ function Callout({ index, today }: { index: number; today: number }) {
 		call = { kicker: "in programma", title: `Cominciano il ${from}`, sub: `In carica fino al ${to}.`, bg: "bg-yellow-tint" };
 	} else if (isLatest) {
 		// nothing scheduled after it yet
-		call = { kicker: "conclusa", title: "Nuovi ruoli in definizione", sub: `L'ultima rotazione è andata dal ${from} al ${to}.`, bg: "bg-yellow-tint" };
+		call = {
+			kicker: "conclusa",
+			title: "Nuovi ruoli in definizione",
+			sub: `Ultima rotazione dal ${from} al ${to}.`,
+			bg: "bg-yellow-tint",
+		};
 	} else {
 		call = { kicker: "conclusa", title: `Sono cambiati il ${to}`, sub: `In carica dal ${from} al ${to}.`, bg: "bg-muted" };
 	}
 
 	return (
-		<div
-			aria-live="polite"
-			className={cn("flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-t-2 border-ink px-6 py-4", call.bg)}
-		>
+		<div aria-live="polite" className={cn("flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-t-2 border-ink px-6 py-4", call.bg)}>
 			<div className="flex flex-col gap-1">
 				<span className="font-pixel text-[22px] leading-none">
 					rotazione {index + 1} {call.kicker}
@@ -131,7 +133,12 @@ function RotationStepper({ selected, onSelect, today }: { selected: number; onSe
 										{i + 1}
 									</span>
 								</span>
-								<span className={cn("text-[17px] leading-tight font-bold underline-offset-4", isSelected ? "underline decoration-3" : "group-hover:underline")}>
+								<span
+									className={cn(
+										"text-[17px] leading-tight font-bold underline-offset-4",
+										isSelected ? "underline decoration-3" : "group-hover:underline",
+									)}
+								>
 									{formatDate(r.from, "short")}
 								</span>
 								<span className="text-sm leading-tight font-medium text-ink-muted">{statusLabel[status]}</span>
@@ -209,9 +216,7 @@ function Avatar({ username, name, className }: { username: string; name: string;
 }
 
 function RoleTree({ rotation }: { rotation: Rotation }) {
-	const members = team
-		.filter((m) => rotation.roles[m.username])
-		.map((m) => ({ ...m, role: rotation.roles[m.username] }));
+	const members = team.filter((m) => rotation.roles[m.username]).map((m) => ({ ...m, role: rotation.roles[m.username] }));
 	const levels = [...new Set(members.map((m) => rankOf(m.role)))].sort((a, b) => a - b);
 
 	return (
@@ -282,9 +287,11 @@ export default function Team() {
 				<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-2 border-b-2 border-ink pb-4">
 					<div className="flex flex-col">
 						<span className="font-pixel text-[22px] leading-none text-ink-muted">git shortlog -s</span>
-						<h2 className="text-[40px] leading-none font-extrabold uppercase">Il team</h2>
+						<h2 className="text-[40px] leading-none font-extrabold">Il Team</h2>
 					</div>
-					<span className="text-sm font-medium text-ink-muted">I ruoli ruotano: scegli una rotazione per vedere chi ha fatto cosa.</span>
+					<span className="text-sm font-medium text-ink-muted">
+						Puoi scorrere avanti e indietro nel tempo per vedere lo storico delle rotazioni.
+					</span>
 				</div>
 				<div className="border-2 border-ink bg-paper shadow-offset">
 					<RotationStepper selected={selected} onSelect={setSelected} today={today} />
