@@ -1,0 +1,17 @@
+{
+	"title": "Verbale interno del 03 novembre 2026",
+	"description": "Riunione interna del team. Organizzazione dopo correzioni del professore",
+	"createdAt": "2026-11-03T00:00:00Z",
+	"version": {
+		"version": "1.0.0",
+		"atTimestamp": "2026-11-03T00:00:00Z"
+	},
+	"approved": {
+		"approvedAt": "2026-11-03T18:03:31Z",
+		"by": [
+			"gchomy"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/25",
+		"prNumber": 25
+	}
+}
