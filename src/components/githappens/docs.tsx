@@ -1,6 +1,6 @@
 import { useManifest, type Category, type ManifestFile } from "@/lib/hooks/use-manifest";
 import { Badge } from "../ui/badge";
-import { DocumentCard } from "./document-card";
+import { DocumentCard, DocumentRow } from "./document-card";
 import { Button } from "../ui/button";
 import { cn, humanize } from "@/lib/utils";
 import { useMemo } from "react";
@@ -8,6 +8,8 @@ import { docMatchesQuery, useSearch } from "@/lib/hooks/search";
 import { SearchBar } from "./search-bar";
 import { useWrapped } from "@/lib/hooks/use-wrapped";
 import { SeenDocumentsProvider, useSeenDocuments } from "@/lib/hooks/use-seen-documents";
+import { useViewMode, type ViewMode } from "@/lib/hooks/use-view-mode";
+import { LayoutGridIcon, ListIcon } from "lucide-react";
 
 /** DOM id of a category section, used by the chips to jump to it. */
 const categoryAnchor = (id: string) =>
@@ -16,7 +18,37 @@ const categoryAnchor = (id: string) =>
 		.toLowerCase()
 		.replaceAll(/[^a-z0-9]+/g, "-")}`;
 
-function CategoryAnchors({ groups }: { groups: Category[] }) {
+const viewOptions = [
+	{ mode: "rows", label: "Vista a righe", Icon: ListIcon },
+	{ mode: "cards", label: "Vista a schede", Icon: LayoutGridIcon },
+] as const;
+
+// segmented control: two joined chips, the selected one inverted to ink
+function ViewToggle({ view, onChange }: { view: ViewMode; onChange: (view: ViewMode) => void }) {
+	return (
+		<div role="group" aria-label="Visualizzazione" className="flex shrink-0">
+			{viewOptions.map(({ mode, label, Icon }) => (
+				<Button
+					key={mode}
+					type="button"
+					variant="chip"
+					size="icon"
+					aria-label={label}
+					title={label}
+					aria-pressed={view === mode}
+					onClick={() => onChange(mode)}
+					className="first:rounded-r-none last:-ml-0.5 last:rounded-l-none aria-pressed:bg-ink aria-pressed:text-paper"
+				>
+					<Icon />
+				</Button>
+			))}
+		</div>
+	);
+}
+
+type ViewProps = { view: ViewMode; onViewChange: (view: ViewMode) => void };
+
+function CategoryAnchors({ groups, view, onViewChange }: { groups: Category[] } & ViewProps) {
 	// spread apart while search and chips share a row, centered once they stack
 	const [ref, wrapped] = useWrapped<HTMLElement>();
 
@@ -29,7 +61,10 @@ function CategoryAnchors({ groups }: { groups: Category[] }) {
 				wrapped ? "justify-center" : "justify-between",
 			)}
 		>
-			<SearchBar className="w-100 max-w-full" />
+			<div className="flex max-w-full items-center gap-2">
+				<SearchBar className="w-100 max-w-full min-w-0" />
+				<ViewToggle view={view} onChange={onViewChange} />
+			</div>
 			<div className={cn("flex flex-wrap items-center gap-2 p-4", wrapped && "justify-center")}>
 				<span className="font-pixel text-2xl p-2">categorie</span>
 				{groups.map((g) => (
@@ -78,8 +113,20 @@ function compFilesDesc(a: ManifestFile, b: ManifestFile): number {
 	}
 }
 
-const DocumentGrid = ({ files }: { files: ManifestFile[] }) => {
+const DocumentGrid = ({ files, view }: { files: ManifestFile[]; view: ViewMode }) => {
 	const sorted = useMemo(() => [...files].sort(compFilesDesc), [files]);
+
+	if (view === "rows") {
+		// one outlined box ruled into rows; on wide screens the rows share its columns
+		// (icon, title, badges, date) through subgrid
+		return (
+			<div className="flex flex-col border-2 border-ink shadow-offset lg:grid lg:grid-cols-[auto_minmax(0,1fr)_auto_auto]">
+				{sorted.map((file) => (
+					<DocumentRow key={file.path} file={file} />
+				))}
+			</div>
+		);
+	}
 
 	return (
 		<div className="grid grid-cols-[repeat(auto-fill,minmax(min(350px,100%),1fr))] gap-6">
@@ -100,7 +147,7 @@ function filterGroups(groups: Category[], query: string): Category[] {
 	return groups.map((g) => ({ ...g, files: g.files.filter(matches) })).filter((g) => g.files.length);
 }
 
-function DocumentSubCategory({ category, sub }: { category: Category; sub: SubCategory }) {
+function DocumentSubCategory({ category, sub, view }: { category: Category; sub: SubCategory; view: ViewMode }) {
 	return (
 		<div id={categoryAnchor(`${category.id}/${sub.id}`)} className="flex scroll-mt-4 flex-col gap-4 m-4">
 			<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1 pb-2">
@@ -109,12 +156,12 @@ function DocumentSubCategory({ category, sub }: { category: Category; sub: SubCa
 				</div>
 				<span className="text-sm font-light">{sub.files.length} documenti</span>
 			</div>
-			<DocumentGrid files={sub.files} />
+			<DocumentGrid files={sub.files} view={view} />
 		</div>
 	);
 }
 
-function DocumentCategory({ category }: { category: Category }) {
+function DocumentCategory({ category, view }: { category: Category; view: ViewMode }) {
 	const subs = groupBySubCategory(category.files);
 
 	return (
@@ -128,7 +175,11 @@ function DocumentCategory({ category }: { category: Category }) {
 			</div>
 			{subs.length ? (
 				subs.map((sub) =>
-					sub.id ? <DocumentSubCategory key={sub.id} category={category} sub={sub} /> : <DocumentGrid key="loose" files={sub.files} />,
+					sub.id ? (
+						<DocumentSubCategory key={sub.id} category={category} sub={sub} view={view} />
+					) : (
+						<DocumentGrid key="loose" files={sub.files} view={view} />
+					),
 				)
 			) : (
 				<span className="text-ink-muted text-center">Nessun documento qui per ora</span>
@@ -150,6 +201,7 @@ export default function Docs() {
 	const { query } = useSearch();
 	const groups = useMemo(() => (manifest ? filterGroups(manifest.groups, query) : []), [manifest, query]);
 	const seen = useSeenDocuments(manifest);
+	const [view, setView] = useViewMode();
 
 	return (
 		<SeenDocumentsProvider value={seen}>
@@ -159,11 +211,11 @@ export default function Docs() {
 				{manifest &&
 					(manifest.groups.length ? (
 						<>
-							<CategoryAnchors groups={groups} />
+							<CategoryAnchors groups={groups} view={view} onViewChange={setView} />
 							{groups.length ? (
 								<div className="flex flex-col gap-12 p-4">
 									{groups.map((g) => (
-										<DocumentCategory key={g.id} category={g} />
+										<DocumentCategory key={g.id} category={g} view={view} />
 									))}
 								</div>
 							) : (
