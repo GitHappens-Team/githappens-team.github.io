@@ -4,6 +4,8 @@ import { DocumentCard } from "./document-card";
 import { Button } from "../ui/button";
 import { humanize } from "@/lib/utils";
 import { useMemo } from "react";
+import { docMatchesQuery, useSearch } from "@/lib/hooks/search";
+import { SearchBar } from "./search-bar";
 
 /** DOM id of a category section, used by the chips to jump to it. */
 const categoryAnchor = (id: string) =>
@@ -12,18 +14,21 @@ const categoryAnchor = (id: string) =>
 		.toLowerCase()
 		.replaceAll(/[^a-z0-9]+/g, "-")}`;
 
-function Categories({ groups }: { groups: Category[] }) {
+function CategoryAnchors({ groups }: { groups: Category[] }) {
 	return (
-		<nav aria-label="Categorie" className="flex flex-wrap items-center gap-2 bg-muted p-4 border-b-2 border-ink">
-			<span className="font-pixel text-2xl p-2">categorie</span>
-			{groups.map((g) => (
-				<Button key={g.id} asChild variant="chip">
-					<a href={`#${categoryAnchor(g.id)}`}>
-						<span>{humanize(g.id)}</span>
-						<span className="text-sm font-light">{g.files.length} documenti</span>
-					</a>
-				</Button>
-			))}
+		<nav aria-label="Categorie" className="flex flex-wrap justify-between items-center gap-2 bg-muted p-4 border-b-2 border-ink">
+			<SearchBar className="w-100 max-w-full" />
+			<div className="flex flex-wrap items-center gap-2 p-4">
+				<span className="font-pixel text-2xl p-2">categorie</span>
+				{groups.map((g) => (
+					<Button key={g.id} asChild variant="chip">
+						<a href={`#${categoryAnchor(g.id)}`}>
+							<span>{humanize(g.id)}</span>
+							<span className="text-sm font-light">{g.files.length} documenti</span>
+						</a>
+					</Button>
+				))}
+			</div>
 		</nav>
 	);
 }
@@ -73,6 +78,16 @@ const DocumentGrid = ({ files }: { files: ManifestFile[] }) => {
 	);
 };
 
+/**
+ * Narrows every category to the documents matching the query. While searching,
+ * categories left empty are dropped so only the ones with results show up.
+ */
+function filterGroups(groups: Category[], query: string): Category[] {
+	if (!query.trim()) return groups;
+	const matches = docMatchesQuery(query);
+	return groups.map((g) => ({ ...g, files: g.files.filter(matches) })).filter((g) => g.files.length);
+}
+
 function DocumentSubCategory({ category, sub }: { category: Category; sub: SubCategory }) {
 	return (
 		<div id={categoryAnchor(`${category.id}/${sub.id}`)} className="flex scroll-mt-4 flex-col gap-4 m-4">
@@ -120,6 +135,8 @@ function Message({ children, role }: { children: React.ReactNode; role?: "alert"
 
 export default function Docs() {
 	const { status, manifest } = useManifest();
+	const { query } = useSearch();
+	const groups = useMemo(() => (manifest ? filterGroups(manifest.groups, query) : []), [manifest, query]);
 
 	return (
 		<section className="flex flex-col gap-4 mb-10" id="docs">
@@ -128,12 +145,16 @@ export default function Docs() {
 			{manifest &&
 				(manifest.groups.length ? (
 					<>
-						<Categories groups={manifest.groups} />
-						<div className="flex flex-col gap-12 p-4">
-							{manifest.groups.map((g) => (
-								<DocumentCategory key={g.id} category={g} />
-							))}
-						</div>
+						<CategoryAnchors groups={groups} />
+						{groups.length ? (
+							<div className="flex flex-col gap-12 p-4">
+								{groups.map((g) => (
+									<DocumentCategory key={g.id} category={g} />
+								))}
+							</div>
+						) : (
+							<Message role="status">Nessun documento corrisponde a “{query.trim()}”.</Message>
+						)}
 					</>
 				) : (
 					<Message>Nessun documento disponibile per ora.</Message>
