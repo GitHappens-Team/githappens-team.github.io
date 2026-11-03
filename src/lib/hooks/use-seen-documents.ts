@@ -39,13 +39,18 @@ function write(storage: () => Storage, key: string, value: string) {
  * Records the current manifest as seen, so the next visit compares against it.
  */
 function loadBaseline(manifest: Manifest): Snapshot | null {
+	const current = JSON.stringify(snapshot(manifest));
 	let baseline = read(() => sessionStorage, BASELINE_KEY);
 	if (baseline === null) {
-		baseline = read(() => localStorage, SEEN_KEY) ?? "null";
-		write(() => sessionStorage, BASELINE_KEY, baseline);
+		baseline = read(() => localStorage, SEEN_KEY);
+		// On the device's first visit there is nothing to mark yet, but this tab's later
+		// reloads must still compare against what it showed now. Pinning "null" here would
+		// hide every new or updated document for the rest of the tab's lifetime.
+		write(() => sessionStorage, BASELINE_KEY, baseline ?? current);
 	}
-	write(() => localStorage, SEEN_KEY, JSON.stringify(snapshot(manifest)));
+	write(() => localStorage, SEEN_KEY, current);
 
+	if (baseline === null) return null;
 	try {
 		return JSON.parse(baseline) as Snapshot | null;
 	} catch {
