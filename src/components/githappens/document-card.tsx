@@ -2,6 +2,7 @@ import { fileUrl, type ManifestFile } from "@/lib/hooks/use-manifest";
 import { cn, humanize } from "@/lib/utils";
 import { FileIcon } from "../icons";
 import { Badge } from "../ui/badge";
+import { CheckCheck, GitPullRequestArrowIcon } from "lucide-react";
 
 type DocumentCardProps = Omit<React.ComponentProps<"a">, "href" | "title"> & {
 	file: ManifestFile;
@@ -44,6 +45,16 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 						{file.metadata?.version && (
 							<Badge>
 								versione {file.metadata.version.version} del {file.metadata.version.atTimestamp.toLocaleDateString()}
+							</Badge>
+						)}
+						{file.metadata?.approved && (
+							<Badge variant="success">
+								<div className="flex items-center gap-2">
+									<CheckCheck aria-label="Approvato da" />
+									<span>{file.metadata.approved.by.join(", ")}</span>
+									<div className="h-1 w-1 bg-success" />
+									<GitPullRequestArrowIcon />#{file.metadata.approved.prNumber}
+								</div>
 							</Badge>
 						)}
 						<span className="mt-1 font-light">Creato il {file.metadata?.createdAt?.toLocaleDateString()}</span>

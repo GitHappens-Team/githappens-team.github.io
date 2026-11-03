@@ -15,6 +15,7 @@
     --color-paper: var(--paper);
     --color-paper-alt: var(--paper-alt);
     --color-line: var(--line);
+    --color-success: var(--success);
     --font-display: "League Spartan Variable", "Futura", "Century Gothic", sans-serif;
     --font-pixel: "VT323", "Courier New", monospace;
     --shadow-offset: 4px 4px 0 var(--ink);
@@ -70,6 +71,7 @@
     --paper-alt: #f6f4ee;
     --line: #000000;
     --conflict: #c62828;
+    --success: hsl(115, 100%, 20%);
 
     --background: var(--paper);
     --foreground: var(--ink);

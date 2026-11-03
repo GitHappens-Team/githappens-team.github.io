@@ -27,7 +27,7 @@ const pickDate = (v) => {
 };
 
 // metadata.json of one folder ->
-// { title, description?, version?, createdAt? } | undefined (cached per folder)
+// { title, description?, version?, createdAt?, approved? } | undefined (cached per folder)
 const metadataCache = new Map();
 async function readMetadata(dir) {
 	if (metadataCache.has(dir)) return metadataCache.get(dir);
@@ -40,11 +40,16 @@ async function readMetadata(dir) {
 			const createdAt = pickDate(json.createdAt);
 			const versionNumber = pick(json.version?.version);
 			const versionAt = pickDate(json.version?.atTimestamp);
+			const approvedAt = pickDate(json.approved?.approvedAt);
+			const by = Array.isArray(json.approved?.by) ? json.approved.by.map(pick).filter(Boolean) : [];
+			const prLink = pick(json.approved?.prLink);
+			const prNumber = Number.isInteger(json.approved?.prNumber) && json.approved.prNumber > 0 ? json.approved.prNumber : undefined;
 			metadata = {
 				title,
 				...(description && { description }),
 				...(versionNumber && versionAt && { version: { version: versionNumber, atTimestamp: versionAt } }),
 				...(createdAt && { createdAt }),
+				...(approvedAt && prNumber && { approved: { approvedAt, by, ...(prLink && { prLink }), prNumber } }),
 			};
 		}
 	} catch (error) {
