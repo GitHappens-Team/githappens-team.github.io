@@ -1,14 +1,14 @@
 {
   "groups": [
     {
-      "id": "aggiudicazione_capitolato",
+      "id": "candidatura",
       "files": [
         {
           "name": "lettera_candidatura",
-          "path": "aggiudicazione_capitolato/lettera_candidatura/lettera_candidatura.pdf",
+          "path": "candidatura/lettera_candidatura/lettera_candidatura.pdf",
           "folder": "lettera_candidatura",
-          "size": 567510,
-          "modified": "2026-11-03T09:27:14.777Z",
+          "size": 567525,
+          "modified": "2026-11-03T16:01:16.293Z",
           "metadata": {
             "title": "Lettera di presentazione",
             "important": true,
@@ -30,10 +30,10 @@
         },
         {
           "name": "preventivo_costi",
-          "path": "aggiudicazione_capitolato/preventivo_costi/preventivo_costi.pdf",
+          "path": "candidatura/preventivo_costi/preventivo_costi.pdf",
           "folder": "preventivo_costi",
-          "size": 556567,
-          "modified": "2026-11-03T09:27:14.780Z",
+          "size": 562682,
+          "modified": "2026-11-03T16:01:16.296Z",
           "metadata": {
             "title": "Preventivo costi e assunzione impegni",
             "important": true,
@@ -54,10 +54,10 @@
         },
         {
           "name": "valutazione_capitolati",
-          "path": "aggiudicazione_capitolato/valutazione_capitolati/valutazione_capitolati.pdf",
+          "path": "candidatura/valutazione_capitolati/valutazione_capitolati.pdf",
           "folder": "valutazione_capitolati",
-          "size": 576519,
-          "modified": "2026-11-03T09:27:14.784Z",
+          "size": 577195,
+          "modified": "2026-11-03T16:01:16.299Z",
           "metadata": {
             "title": "Valutazione capitolati",
             "important": true,
@@ -133,8 +133,8 @@
           "name": "2026-10-26",
           "path": "verbali/esterni/2026-10-26/2026-10-26.pdf",
           "folder": "esterni/2026-10-26",
-          "size": 561032,
-          "modified": "2026-10-30T14:38:29.545Z",
+          "size": 1056127,
+          "modified": "2026-11-03T16:01:16.303Z",
           "metadata": {
             "title": "Verbale esterno del 26 ottobre 2026 - Firmato dall'azienda",
             "description": "Primo incontro con Halue s.r.l.",
@@ -181,8 +181,8 @@
           "name": "2026-10-16",
           "path": "verbali/interni/2026-10-16/2026-10-16.pdf",
           "folder": "interni/2026-10-16",
-          "size": 553183,
-          "modified": "2026-11-03T09:27:14.790Z",
+          "size": 540756,
+          "modified": "2026-11-03T16:01:16.307Z",
           "metadata": {
             "title": "Verbale interno del 16 ottobre 2026",
             "description": "Prima riunione interna. Accordi iniziali sul way of working e le piattaforme di comunicazione, sondaggio sull'interesse del team nei vari capitolati.",
@@ -205,8 +205,8 @@
           "name": "2026-10-20",
           "path": "verbali/interni/2026-10-20/2026-10-20.pdf",
           "folder": "interni/2026-10-20",
-          "size": 558102,
-          "modified": "2026-11-03T09:27:14.792Z",
+          "size": 537954,
+          "modified": "2026-11-03T16:01:16.311Z",
           "metadata": {
             "title": "Verbale interno del 20 ottobre 2026",
             "description": "Riunione interna del team. Gestione ruoli del periodo, creazione di template di verbale e definizione prossimo incontro.",
@@ -229,8 +229,8 @@
           "name": "2026-10-30",
           "path": "verbali/interni/2026-10-30/2026-10-30.pdf",
           "folder": "interni/2026-10-30",
-          "size": 547780,
-          "modified": "2026-11-03T09:27:14.795Z",
+          "size": 528847,
+          "modified": "2026-11-03T16:01:16.314Z",
           "metadata": {
             "title": "Verbale interno del 30 ottobre 2026",
             "description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura.",
@@ -258,8 +258,8 @@
           "name": "definizione",
           "path": "way_of_working/definizione/definizione.pdf",
           "folder": "definizione",
-          "size": 639662,
-          "modified": "2026-11-03T09:27:14.798Z",
+          "size": 639658,
+          "modified": "2026-11-03T16:01:16.316Z",
           "metadata": {
             "title": "Definizione del Way Of Working",
             "important": true,
