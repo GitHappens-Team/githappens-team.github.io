@@ -3,8 +3,8 @@
 	"description": "Riunione interna del team. Gestione ruoli del periodo, creazione di template di verbale e definizione prossimo incontro.",
 	"createdAt": "2026-10-21T00:00:00Z",
 	"version": {
-		"version": "0.0.4",
-		"atTimestamp": "2026-10-23T00:00:00Z"
+		"version": "1.0.0",
+		"atTimestamp": "2026-11-03T00:00:00Z"
 	},
 	"approved": {
 		"approvedAt": "2026-11-03T19:58:37Z",

@@ -3,8 +3,8 @@
 	"description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura.",
 	"createdAt": "2026-10-30T00:00:00Z",
 	"version": {
-		"version": "0.0.2",
-		"atTimestamp": "2026-10-30T00:00:00Z"
+		"version": "1.0.0",
+		"atTimestamp": "2026-11-03T00:00:00Z"
 	},
 	"approved": {
 		"approvedAt": "2026-11-03T19:58:37Z",
