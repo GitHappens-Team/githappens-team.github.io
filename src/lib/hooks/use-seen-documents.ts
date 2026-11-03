@@ -41,6 +41,9 @@ function write(storage: () => Storage, key: string, value: string) {
 function loadBaseline(manifest: Manifest): Snapshot | null {
 	const current = JSON.stringify(snapshot(manifest));
 	let baseline = read(() => sessionStorage, BASELINE_KEY);
+	// Tabs opened before 0461d72 may still hold a pinned "null": drop it and rebuild the
+	// baseline from the last snapshot this device saw.
+	if (baseline === "null") baseline = null;
 	if (baseline === null) {
 		baseline = read(() => localStorage, SEEN_KEY);
 		// On the device's first visit there is nothing to mark yet, but this tab's later
