@@ -20,6 +20,7 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 	return (
 		<a
 			href={fileUrl(file)}
+			target="_blank"
 			title={description}
 			className={cn(
 				"flex flex-col justify-between gap-6 border-2 border-ink bg-paper p-6 text-ink no-underline shadow-offset",
