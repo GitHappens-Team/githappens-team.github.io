@@ -2,6 +2,7 @@ import { fileUrl, type ManifestFile } from "@/lib/hooks/use-manifest";
 import { cn, humanize } from "@/lib/utils";
 import { FileIcon } from "../icons";
 import { Badge } from "../ui/badge";
+import { displayName } from "@/lib/team";
 import { useDocumentStatus } from "@/lib/hooks/use-seen-documents";
 import { CheckCheck, GitPullRequestArrowIcon, Star } from "lucide-react";
 
@@ -60,7 +61,7 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 							<Badge variant="success">
 								<div className="flex items-center gap-2">
 									<CheckCheck aria-label="Approvato da" />
-									<span>{file.metadata.approved.by.join(", ")}</span>
+									<span>{file.metadata.approved.by.map(displayName).join(", ")}</span>
 									<div className="h-1 w-1 bg-success" />
 									<GitPullRequestArrowIcon />#{file.metadata.approved.prNumber}
 								</div>

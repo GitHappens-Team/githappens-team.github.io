@@ -1,5 +1,6 @@
 import { createContext, useContext, type Dispatch, type SetStateAction } from "react";
 import type { ManifestFile } from "./use-manifest";
+import { displayName } from "../team";
 
 export type SearchContext = {
 	/** the current search query, lowercased */
@@ -39,7 +40,7 @@ export function docMatchesQuery(query: string): (f: ManifestFile) => boolean {
 			doc.metadata?.title?.toLowerCase().includes(query) ||
 			doc.metadata?.description?.toLowerCase().includes(query) ||
 			doc.metadata?.version?.version.toLowerCase().includes(query) ||
-			doc.metadata?.approved?.by.some((a) => a.toLowerCase().includes(query)) ||
+			doc.metadata?.approved?.by.some((a) => a.toLowerCase().includes(query) || displayName(a).toLowerCase().includes(query)) ||
 			doc.metadata?.createdAt?.toLocaleDateString().toLowerCase().includes(query) ||
 			doc.metadata?.approved?.approvedAt.toLocaleDateString().toLowerCase().includes(query) ||
 			doc.metadata?.approved?.prNumber.toString().toLowerCase().includes(query) ||
