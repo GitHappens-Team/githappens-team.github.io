@@ -3,6 +3,7 @@ import { Badge } from "../ui/badge";
 import { DocumentCard } from "./document-card";
 import { Button } from "../ui/button";
 import { humanize } from "@/lib/utils";
+import { useMemo } from "react";
 
 /** DOM id of a category section, used by the chips to jump to it. */
 const categoryAnchor = (id: string) =>
@@ -42,13 +43,35 @@ function groupBySubCategory(files: ManifestFile[]): SubCategory[] {
 	return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([id, files]) => ({ id, files }));
 }
 
-const DocumentGrid = ({ files }: { files: ManifestFile[] }) => (
-	<div className="grid grid-cols-[repeat(auto-fill,minmax(min(350px,100%),1fr))] gap-6">
-		{files.map((file) => (
-			<DocumentCard key={file.path} file={file} />
-		))}
-	</div>
-);
+/**
+ *
+ * @param a ManifestFile a
+ * @param b ManifestFile b
+ * @returns one of [-1,1,0] respectively if a goes before b, b goes before a, they're equal (locale name compare fallback)
+ */
+function compFilesDesc(a: ManifestFile, b: ManifestFile): number {
+	if (!a.metadata?.createdAt && !b.metadata?.createdAt) return a.name.localeCompare(b.name);
+
+	if (a.metadata?.createdAt && b.metadata?.createdAt) {
+		return a.metadata.createdAt > b.metadata.createdAt ? -1 : 1;
+	} else if (a.metadata?.createdAt) {
+		return -1;
+	} else {
+		return 1;
+	}
+}
+
+const DocumentGrid = ({ files }: { files: ManifestFile[] }) => {
+	const sorted = useMemo(() => [...files].sort(compFilesDesc), [files]);
+
+	return (
+		<div className="grid grid-cols-[repeat(auto-fill,minmax(min(350px,100%),1fr))] gap-6">
+			{sorted.map((file) => (
+				<DocumentCard key={file.path} file={file} />
+			))}
+		</div>
+	);
+};
 
 function DocumentSubCategory({ category, sub }: { category: Category; sub: SubCategory }) {
 	return (
