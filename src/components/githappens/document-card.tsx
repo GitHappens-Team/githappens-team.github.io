@@ -1,7 +1,6 @@
 import { fileUrl, type ManifestFile } from "@/lib/hooks/use-manifest";
 import { cn, humanize } from "@/lib/utils";
-import { ArrowRightIcon, FileIcon } from "../icons";
-import { Badge } from "../ui/badge";
+import { FileIcon } from "../icons";
 
 type DocumentCardProps = Omit<React.ComponentProps<"a">, "href" | "title"> & {
 	file: ManifestFile;
@@ -21,8 +20,9 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 	return (
 		<a
 			href={fileUrl(file)}
+			title={description}
 			className={cn(
-				"flex min-h-55 flex-col justify-between gap-6 border-2 border-ink bg-paper p-6 text-ink no-underline shadow-offset",
+				"flex flex-col justify-between gap-6 border-2 border-ink bg-paper p-6 text-ink no-underline shadow-offset",
 				"transition-[transform,box-shadow,background-color] duration-75",
 				"hover:-translate-x-0.5 hover:-translate-y-0.5 hover:bg-yellow-tint hover:shadow-[6px_6px_0_var(--ink)]",
 				"outline-none focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-ink",
@@ -30,24 +30,15 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 			)}
 			{...props}
 		>
-			<div className="flex flex-col gap-4">
+			<div className="flex gap-4">
 				<div className="flex items-center justify-between gap-4">
-					<Badge variant="yellow" size="sm">
-						PDF
-					</Badge>
 					<FileIcon className="size-7" />
 				</div>
 				<div className="flex flex-col gap-2">
-					<h3 className="text-[22px] leading-tight font-bold">{heading}</h3>
-					{description && <p className="text-ink-muted">{description}</p>}
+					<div className="flex gap-1 justify-between">
+						<h3 className="text-xl leading-tight font-semibold">{heading}</h3>
+					</div>
 				</div>
-			</div>
-			<div className="flex items-center justify-between gap-4 border-t-2 border-ink pt-4">
-				<span className="font-pixel text-xl leading-[1.1] [overflow-wrap:anywhere]">{file.path.split("/").pop()}</span>
-				<span className="inline-flex items-center gap-2 font-bold whitespace-nowrap">
-					Apri
-					<ArrowRightIcon className="size-5" />
-				</span>
 			</div>
 		</a>
 	);

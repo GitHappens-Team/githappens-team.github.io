@@ -5,7 +5,11 @@ import { Button } from "../ui/button";
 import { humanize } from "@/lib/utils";
 
 /** DOM id of a category section, used by the chips to jump to it. */
-const categoryAnchor = (id: string) => `cat-${id.trim().toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
+const categoryAnchor = (id: string) =>
+	`cat-${id
+		.trim()
+		.toLowerCase()
+		.replaceAll(/[^a-z0-9]+/g, "-")}`;
 
 function Categories({ groups }: { groups: Category[] }) {
 	return (
@@ -35,13 +39,11 @@ function groupBySubCategory(files: ManifestFile[]): SubCategory[] {
 		const id = file.folder.split("/").slice(0, -1).join("/");
 		groups.set(id, [...(groups.get(id) ?? []), file]);
 	}
-	return [...groups.entries()]
-		.sort(([a], [b]) => a.localeCompare(b))
-		.map(([id, files]) => ({ id, files }));
+	return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([id, files]) => ({ id, files }));
 }
 
 const DocumentGrid = ({ files }: { files: ManifestFile[] }) => (
-	<div className="grid grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-6">
+	<div className="grid grid-cols-[repeat(auto-fill,minmax(min(350px,100%),1fr))] gap-6">
 		{files.map((file) => (
 			<DocumentCard key={file.path} file={file} />
 		))}
@@ -50,10 +52,9 @@ const DocumentGrid = ({ files }: { files: ManifestFile[] }) => (
 
 function DocumentSubCategory({ category, sub }: { category: Category; sub: SubCategory }) {
 	return (
-		<div id={categoryAnchor(`${category.id}/${sub.id}`)} className="flex scroll-mt-4 flex-col gap-4">
-			<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1 border-b-2 border-ink pb-2">
+		<div id={categoryAnchor(`${category.id}/${sub.id}`)} className="flex scroll-mt-4 flex-col gap-4 m-4">
+			<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1 pb-2">
 				<div className="flex flex-col">
-					<span className="text-ink-muted font-pixel text-xl">{sub.id}/</span>
 					<h4 className="font-bold text-2xl">{sub.id.split("/").map(humanize).join(" / ")}</h4>
 				</div>
 				<span className="text-sm font-light">{sub.files.length} documenti</span>
@@ -77,11 +78,7 @@ function DocumentCategory({ category }: { category: Category }) {
 			</div>
 			{subs.length ? (
 				subs.map((sub) =>
-					sub.id ? (
-						<DocumentSubCategory key={sub.id} category={category} sub={sub} />
-					) : (
-						<DocumentGrid key="loose" files={sub.files} />
-					),
+					sub.id ? <DocumentSubCategory key={sub.id} category={category} sub={sub} /> : <DocumentGrid key="loose" files={sub.files} />,
 				)
 			) : (
 				<span className="text-ink-muted text-center">Nessun documento qui per ora</span>
@@ -102,11 +99,9 @@ export default function Docs() {
 	const { status, manifest } = useManifest();
 
 	return (
-		<section className="flex flex-col gap-4" id="docs">
+		<section className="flex flex-col gap-4 mb-10" id="docs">
 			{status === "loading" && <Message role="status">Carico i documenti…</Message>}
-			{status === "error" && (
-				<Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>
-			)}
+			{status === "error" && <Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>}
 			{manifest &&
 				(manifest.groups.length ? (
 					<>
