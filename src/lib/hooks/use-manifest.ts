@@ -20,6 +20,12 @@ export type ManifestFileMetadata = {
 		atTimestamp: Date;
 	};
 	createdAt?: Date;
+	approved?: {
+		approvedAt: Date;
+		by: string[];
+		prLink?: string;
+		prNumber: number;
+	};
 };
 
 export type Category = {
@@ -43,6 +49,7 @@ const parseMetadata = (raw: RawManifest["groups"][number]["files"][number]["meta
 		...raw,
 		version: raw.version && { ...raw.version, atTimestamp: new Date(raw.version.atTimestamp) },
 		createdAt: raw.createdAt ? new Date(raw.createdAt) : undefined,
+		approved: raw.approved && { ...raw.approved, approvedAt: new Date(raw.approved.approvedAt) },
 	};
 
 function parseManifest(raw: RawManifest): Manifest {
