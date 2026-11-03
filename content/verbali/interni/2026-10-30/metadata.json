@@ -1,4 +1,17 @@
 {
 	"title": "Verbale interno del 30 ottobre 2026",
-	"description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura."
+	"description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura.",
+	"createdAt": "2026-10-30T00:00:00Z",
+	"version": {
+		"version": "0.0.2",
+		"atTimestamp": "2026-10-30T00:00:00Z"
+	},
+	"approved": {
+		"approvedAt": "2026-11-03T11:10:15Z",
+		"by": [
+			"MrFreex"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/12",
+		"prNumber": 12
+	}
 }

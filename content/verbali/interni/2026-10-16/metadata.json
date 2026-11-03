@@ -1,4 +1,17 @@
 {
 	"title": "Verbale interno del 16 ottobre 2026",
-	"description": "Prima riunione interna. Accordi iniziali sul way of working e le piattaforme di comunicazione, sondaggio sull'interesse del team nei vari capitolati."
+	"description": "Prima riunione interna. Accordi iniziali sul way of working e le piattaforme di comunicazione, sondaggio sull'interesse del team nei vari capitolati.",
+	"createdAt": "2026-10-16T00:00:00Z",
+	"version": {
+		"version": "0.0.3",
+		"atTimestamp": "2026-10-17T00:00:00Z"
+	},
+	"approved": {
+		"approvedAt": "2026-11-03T11:10:15Z",
+		"by": [
+			"MrFreex"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/12",
+		"prNumber": 12
+	}
 }
