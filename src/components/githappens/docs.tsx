@@ -2,23 +2,45 @@ import { useManifest, type Category, type ManifestFile } from "@/lib/hooks/use-m
 import { Badge } from "../ui/badge";
 import { DocumentCard } from "./document-card";
 import { Button } from "../ui/button";
-import { humanize } from "@/lib/utils";
+import { cn, humanize } from "@/lib/utils";
+import { useMemo } from "react";
+import { docMatchesQuery, useSearch } from "@/lib/hooks/search";
+import { SearchBar } from "./search-bar";
+import { useWrapped } from "@/lib/hooks/use-wrapped";
+import { SeenDocumentsProvider, useSeenDocuments } from "@/lib/hooks/use-seen-documents";
 
 /** DOM id of a category section, used by the chips to jump to it. */
-const categoryAnchor = (id: string) => `cat-${id.trim().toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}`;
+const categoryAnchor = (id: string) =>
+	`cat-${id
+		.trim()
+		.toLowerCase()
+		.replaceAll(/[^a-z0-9]+/g, "-")}`;
 
-function Categories({ groups }: { groups: Category[] }) {
+function CategoryAnchors({ groups }: { groups: Category[] }) {
+	// spread apart while search and chips share a row, centered once they stack
+	const [ref, wrapped] = useWrapped<HTMLElement>();
+
 	return (
-		<nav aria-label="Categorie" className="flex flex-wrap items-center gap-2 bg-muted p-4 border-b-2 border-ink">
-			<span className="font-pixel text-2xl p-2">categorie</span>
-			{groups.map((g) => (
-				<Button key={g.id} asChild variant="chip">
-					<a href={`#${categoryAnchor(g.id)}`}>
-						<span>{humanize(g.id)}</span>
-						<span className="text-sm font-light">{g.files.length} documenti</span>
-					</a>
-				</Button>
-			))}
+		<nav
+			ref={ref}
+			aria-label="Categorie"
+			className={cn(
+				"flex flex-wrap items-center gap-x-8 gap-y-2 bg-muted p-4 border-b-2 border-ink",
+				wrapped ? "justify-center" : "justify-between",
+			)}
+		>
+			<SearchBar className="w-100 max-w-full" />
+			<div className={cn("flex flex-wrap items-center gap-2 p-4", wrapped && "justify-center")}>
+				<span className="font-pixel text-2xl p-2">categorie</span>
+				{groups.map((g) => (
+					<Button key={g.id} asChild variant="chip">
+						<a href={`#${categoryAnchor(g.id)}`}>
+							<span>{humanize(g.id)}</span>
+							<span className="text-sm font-light">{g.files.length} documenti</span>
+						</a>
+					</Button>
+				))}
+			</div>
 		</nav>
 	);
 }
@@ -35,25 +57,54 @@ function groupBySubCategory(files: ManifestFile[]): SubCategory[] {
 		const id = file.folder.split("/").slice(0, -1).join("/");
 		groups.set(id, [...(groups.get(id) ?? []), file]);
 	}
-	return [...groups.entries()]
-		.sort(([a], [b]) => a.localeCompare(b))
-		.map(([id, files]) => ({ id, files }));
+	return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([id, files]) => ({ id, files }));
 }
 
-const DocumentGrid = ({ files }: { files: ManifestFile[] }) => (
-	<div className="grid grid-cols-[repeat(auto-fill,minmax(min(300px,100%),1fr))] gap-6">
-		{files.map((file) => (
-			<DocumentCard key={file.path} file={file} />
-		))}
-	</div>
-);
+/**
+ *
+ * @param a ManifestFile a
+ * @param b ManifestFile b
+ * @returns one of [-1,1,0] respectively if a goes before b, b goes before a, they're equal (locale name compare fallback)
+ */
+function compFilesDesc(a: ManifestFile, b: ManifestFile): number {
+	if (!a.metadata?.createdAt && !b.metadata?.createdAt) return a.name.localeCompare(b.name);
+
+	if (a.metadata?.createdAt && b.metadata?.createdAt) {
+		return a.metadata.createdAt > b.metadata.createdAt ? -1 : 1;
+	} else if (a.metadata?.createdAt) {
+		return -1;
+	} else {
+		return 1;
+	}
+}
+
+const DocumentGrid = ({ files }: { files: ManifestFile[] }) => {
+	const sorted = useMemo(() => [...files].sort(compFilesDesc), [files]);
+
+	return (
+		<div className="grid grid-cols-[repeat(auto-fill,minmax(min(350px,100%),1fr))] gap-6">
+			{sorted.map((file) => (
+				<DocumentCard key={file.path} file={file} />
+			))}
+		</div>
+	);
+};
+
+/**
+ * Narrows every category to the documents matching the query. While searching,
+ * categories left empty are dropped so only the ones with results show up.
+ */
+function filterGroups(groups: Category[], query: string): Category[] {
+	if (!query.trim()) return groups;
+	const matches = docMatchesQuery(query);
+	return groups.map((g) => ({ ...g, files: g.files.filter(matches) })).filter((g) => g.files.length);
+}
 
 function DocumentSubCategory({ category, sub }: { category: Category; sub: SubCategory }) {
 	return (
-		<div id={categoryAnchor(`${category.id}/${sub.id}`)} className="flex scroll-mt-4 flex-col gap-4">
-			<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1 border-b-2 border-ink pb-2">
+		<div id={categoryAnchor(`${category.id}/${sub.id}`)} className="flex scroll-mt-4 flex-col gap-4 m-4">
+			<div className="flex flex-wrap items-end justify-between gap-x-6 gap-y-1 pb-2">
 				<div className="flex flex-col">
-					<span className="text-ink-muted font-pixel text-xl">{sub.id}/</span>
 					<h4 className="font-bold text-2xl">{sub.id.split("/").map(humanize).join(" / ")}</h4>
 				</div>
 				<span className="text-sm font-light">{sub.files.length} documenti</span>
@@ -77,11 +128,7 @@ function DocumentCategory({ category }: { category: Category }) {
 			</div>
 			{subs.length ? (
 				subs.map((sub) =>
-					sub.id ? (
-						<DocumentSubCategory key={sub.id} category={category} sub={sub} />
-					) : (
-						<DocumentGrid key="loose" files={sub.files} />
-					),
+					sub.id ? <DocumentSubCategory key={sub.id} category={category} sub={sub} /> : <DocumentGrid key="loose" files={sub.files} />,
 				)
 			) : (
 				<span className="text-ink-muted text-center">Nessun documento qui per ora</span>
@@ -100,26 +147,33 @@ function Message({ children, role }: { children: React.ReactNode; role?: "alert"
 
 export default function Docs() {
 	const { status, manifest } = useManifest();
+	const { query } = useSearch();
+	const groups = useMemo(() => (manifest ? filterGroups(manifest.groups, query) : []), [manifest, query]);
+	const seen = useSeenDocuments(manifest);
 
 	return (
-		<section className="flex flex-col gap-4" id="docs">
-			{status === "loading" && <Message role="status">Carico i documenti…</Message>}
-			{status === "error" && (
-				<Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>
-			)}
-			{manifest &&
-				(manifest.groups.length ? (
-					<>
-						<Categories groups={manifest.groups} />
-						<div className="flex flex-col gap-12 p-4">
-							{manifest.groups.map((g) => (
-								<DocumentCategory key={g.id} category={g} />
-							))}
-						</div>
-					</>
-				) : (
-					<Message>Nessun documento disponibile per ora.</Message>
-				))}
-		</section>
+		<SeenDocumentsProvider value={seen}>
+			<section className="flex flex-col gap-4 mb-10" id="docs">
+				{status === "loading" && <Message role="status">Carico i documenti…</Message>}
+				{status === "error" && <Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>}
+				{manifest &&
+					(manifest.groups.length ? (
+						<>
+							<CategoryAnchors groups={groups} />
+							{groups.length ? (
+								<div className="flex flex-col gap-12 p-4">
+									{groups.map((g) => (
+										<DocumentCategory key={g.id} category={g} />
+									))}
+								</div>
+							) : (
+								<Message role="status">Nessun documento corrisponde a “{query.trim()}”.</Message>
+							)}
+						</>
+					) : (
+						<Message>Nessun documento disponibile per ora.</Message>
+					))}
+			</section>
+		</SeenDocumentsProvider>
 	);
 }

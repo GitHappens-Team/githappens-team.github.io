@@ -8,19 +8,19 @@ export default function Hero() {
 			<div className="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-10">
 				<div className="flex min-w-0 flex-[1_1_480px] flex-col gap-4">
 					<div>
-						<h1 className="font-bold text-4xl uppercase flex flex-col">
-							<span className="font-pixel font-normal lowercase text-3xl">git</span>
+						<h1 className="font-bold text-3xl uppercase flex flex-col">
+							<span className="font-pixel font-normal lowercase text-2xl">git</span>
 							<span lang="en">Documentation</span>
 						</h1>
 					</div>
-					<p className="text-2xl font-medium">Tutta la documentazione del team in una sola pagina.</p>
-					<Button asChild variant="outline" className="self-start text-xl">
+					<p className="text-xl font-medium">Tutta la documentazione del team in una sola pagina.</p>
+					<Button asChild variant="outline" className="self-start text-lg">
 						<a href="#docs">
 							Vai ai documenti <ArrowDownIcon />
 						</a>
 					</Button>
 				</div>
-				<div className="flex min-w-0 flex-[0_1_320px] justify-center">
+				<div className="flex min-w-0 flex-[0_1_280px] justify-center">
 					<img src={mascot} alt="La mascot di git HAPPENS che saluta" className="block h-auto w-full max-w-80" />
 				</div>
 			</div>

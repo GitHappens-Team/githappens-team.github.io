@@ -1,3 +1,285 @@
 {
-  "groups": []
+  "groups": [
+    {
+      "id": "candidatura",
+      "files": [
+        {
+          "name": "lettera_candidatura",
+          "path": "candidatura/lettera_candidatura/lettera_candidatura.pdf",
+          "folder": "lettera_candidatura",
+          "size": 567525,
+          "modified": "2026-11-03T16:30:47.612Z",
+          "metadata": {
+            "title": "Lettera di presentazione",
+            "important": true,
+            "description": "Lettera di candidatura del gruppo Git Happens per il capitolato C0 AIRA di Sanmarco Informatica S.p.A.",
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-10-30T15:28:35.000Z"
+            },
+            "createdAt": "2026-10-30T15:28:35.000Z",
+            "approved": {
+              "approvedAt": "2026-10-30T15:28:35.000Z",
+              "by": [
+                "marameo0"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/11",
+              "prNumber": 11
+            }
+          }
+        },
+        {
+          "name": "preventivo_costi",
+          "path": "candidatura/preventivo_costi/preventivo_costi.pdf",
+          "folder": "preventivo_costi",
+          "size": 562682,
+          "modified": "2026-11-03T16:30:47.614Z",
+          "metadata": {
+            "title": "Dichiarazione impegni",
+            "important": true,
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-03T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-30T15:03:01.000Z",
+            "approved": {
+              "approvedAt": "2026-11-03T15:52:54.000Z",
+              "by": [
+                "PGgabbo"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/19",
+              "prNumber": 19
+            }
+          }
+        },
+        {
+          "name": "valutazione_capitolati",
+          "path": "candidatura/valutazione_capitolati/valutazione_capitolati.pdf",
+          "folder": "valutazione_capitolati",
+          "size": 577195,
+          "modified": "2026-11-03T16:30:47.616Z",
+          "metadata": {
+            "title": "Valutazione capitolati",
+            "important": true,
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-10-30T15:19:54.000Z"
+            },
+            "createdAt": "2026-10-30T15:20:56.000Z",
+            "approved": {
+              "approvedAt": "2026-10-30T15:19:54.000Z",
+              "by": [
+                "PGgabbo"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/9",
+              "prNumber": 9
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "verbali",
+      "files": [
+        {
+          "name": "2026-10-20",
+          "path": "verbali/esterni/2026-10-20/2026-10-20.pdf",
+          "folder": "esterni/2026-10-20",
+          "size": 579361,
+          "modified": "2026-11-03T09:27:14.788Z",
+          "metadata": {
+            "title": "Verbale esterno del 20 ottobre 2026 - Firmato dall'azienda",
+            "description": "Primo incontro con Sanmarco Informatica: comunicazione, uso di API AI open-weight, canali di test, privacy e gestione degli errori.",
+            "version": {
+              "version": "0.0.3",
+              "atTimestamp": "2026-10-23T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-20T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-10-30T14:29:04.000Z",
+              "by": [
+                "MrFreex"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/5",
+              "prNumber": 5
+            }
+          }
+        },
+        {
+          "name": "2026-10-22",
+          "path": "verbali/esterni/2026-10-22/2026-10-22.pdf",
+          "folder": "esterni/2026-10-22",
+          "size": 575275,
+          "modified": "2026-10-30T14:38:29.545Z",
+          "metadata": {
+            "title": "Verbale esterno del 22 ottobre 2026 - Firmato dall'azienda",
+            "description": "Primo incontro con Vimar S.p.A.",
+            "version": {
+              "version": "0.0.5",
+              "atTimestamp": "2026-10-28T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-22T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-10-30T14:29:04.000Z",
+              "by": [
+                "MrFreex"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/5",
+              "prNumber": 5
+            }
+          }
+        },
+        {
+          "name": "2026-10-26",
+          "path": "verbali/esterni/2026-10-26/2026-10-26.pdf",
+          "folder": "esterni/2026-10-26",
+          "size": 1056127,
+          "modified": "2026-11-03T16:01:16.303Z",
+          "metadata": {
+            "title": "Verbale esterno del 26 ottobre 2026 - Firmato dall'azienda",
+            "description": "Primo incontro con Halue s.r.l.",
+            "version": {
+              "version": "0.0.4",
+              "atTimestamp": "2026-10-29T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-26T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-03T13:36:11.000Z",
+              "by": [
+                "monacolama"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/14",
+              "prNumber": 14
+            }
+          }
+        },
+        {
+          "name": "2026-10-27",
+          "path": "verbali/esterni/2026-10-27/2026-10-27.pdf",
+          "folder": "esterni/2026-10-27",
+          "size": 999231,
+          "modified": "2026-10-30T14:38:29.547Z",
+          "metadata": {
+            "title": "Verbale esterno del 27 ottobre 2026 - Firmato dall'azienda",
+            "description": "Primo incontro con Miriade s.r.l.",
+            "version": {
+              "version": "0.0.3",
+              "atTimestamp": "2026-10-29T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-27T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-10-30T14:29:04.000Z",
+              "by": [
+                "MrFreex"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/5",
+              "prNumber": 5
+            }
+          }
+        },
+        {
+          "name": "2026-10-16",
+          "path": "verbali/interni/2026-10-16/2026-10-16.pdf",
+          "folder": "interni/2026-10-16",
+          "size": 540756,
+          "modified": "2026-11-03T16:30:47.619Z",
+          "metadata": {
+            "title": "Verbale interno del 16 ottobre 2026",
+            "description": "Prima riunione interna. Accordi iniziali sul way of working e le piattaforme di comunicazione, sondaggio sull'interesse del team nei vari capitolati.",
+            "version": {
+              "version": "0.0.3",
+              "atTimestamp": "2026-10-17T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-16T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-03T11:10:15.000Z",
+              "by": [
+                "MrFreex"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/12",
+              "prNumber": 12
+            }
+          }
+        },
+        {
+          "name": "2026-10-20",
+          "path": "verbali/interni/2026-10-20/2026-10-20.pdf",
+          "folder": "interni/2026-10-20",
+          "size": 537954,
+          "modified": "2026-11-03T16:30:47.622Z",
+          "metadata": {
+            "title": "Verbale interno del 20 ottobre 2026",
+            "description": "Riunione interna del team. Gestione ruoli del periodo, creazione di template di verbale e definizione prossimo incontro.",
+            "version": {
+              "version": "0.0.4",
+              "atTimestamp": "2026-10-23T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-21T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-03T11:10:15.000Z",
+              "by": [
+                "MrFreex"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/12",
+              "prNumber": 12
+            }
+          }
+        },
+        {
+          "name": "2026-10-30",
+          "path": "verbali/interni/2026-10-30/2026-10-30.pdf",
+          "folder": "interni/2026-10-30",
+          "size": 528847,
+          "modified": "2026-11-03T16:30:47.625Z",
+          "metadata": {
+            "title": "Verbale interno del 30 ottobre 2026",
+            "description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura.",
+            "version": {
+              "version": "0.0.2",
+              "atTimestamp": "2026-10-30T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-30T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-03T11:10:15.000Z",
+              "by": [
+                "MrFreex"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/12",
+              "prNumber": 12
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "way_of_working",
+      "files": [
+        {
+          "name": "definizione",
+          "path": "way_of_working/definizione/definizione.pdf",
+          "folder": "definizione",
+          "size": 639658,
+          "modified": "2026-11-03T16:30:47.627Z",
+          "metadata": {
+            "title": "Definizione del Way Of Working",
+            "important": true,
+            "description": "Documento di definizione incrementale del way of working.",
+            "version": {
+              "version": "0.0.1",
+              "atTimestamp": "2026-10-28T00:00:00.000Z"
+            },
+            "createdAt": "2026-10-28T15:43:52.000Z",
+            "approved": {
+              "approvedAt": "2026-10-28T15:42:45.000Z",
+              "by": [
+                "PGgabbo"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/4",
+              "prNumber": 4
+            }
+          }
+        }
+      ]
+    }
+  ]
 }
