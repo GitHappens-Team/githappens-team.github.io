@@ -1,6 +1,7 @@
 import { fileUrl, type ManifestFile } from "@/lib/hooks/use-manifest";
 import { cn, humanize } from "@/lib/utils";
 import { FileIcon } from "../icons";
+import { Badge } from "../ui/badge";
 
 type DocumentCardProps = Omit<React.ComponentProps<"a">, "href" | "title"> & {
 	file: ManifestFile;
@@ -38,6 +39,14 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 				<div className="flex flex-col gap-2">
 					<div className="flex gap-1 justify-between">
 						<h3 className="text-xl leading-tight font-semibold">{heading}</h3>
+					</div>
+					<div className="flex justify-between gap-2 flex-wrap">
+						{file.metadata?.version && (
+							<Badge>
+								versione {file.metadata.version.version} del {file.metadata.version.atTimestamp.toLocaleDateString()}
+							</Badge>
+						)}
+						<span className="mt-1 font-light">Creato il {file.metadata?.createdAt?.toLocaleDateString()}</span>
 					</div>
 				</div>
 			</div>
