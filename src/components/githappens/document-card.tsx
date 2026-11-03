@@ -2,7 +2,7 @@ import { fileUrl, type ManifestFile } from "@/lib/hooks/use-manifest";
 import { cn, humanize } from "@/lib/utils";
 import { FileIcon } from "../icons";
 import { Badge } from "../ui/badge";
-import { CheckCheck, GitPullRequestArrowIcon } from "lucide-react";
+import { CheckCheck, GitPullRequestArrowIcon, Star } from "lucide-react";
 
 type DocumentCardProps = Omit<React.ComponentProps<"a">, "href" | "title"> & {
 	file: ManifestFile;
@@ -40,6 +40,7 @@ export function DocumentCard({ file, title, summary, className, ...props }: Docu
 				<div className="flex flex-col gap-2">
 					<div className="flex gap-1 justify-between">
 						<h3 className="text-xl leading-tight font-semibold">{heading}</h3>
+						{file.metadata?.important && <Star aria-label="documento di rilievo" className="text-yellow size-6 shrink-0" />}
 					</div>
 					<div className="flex justify-between gap-2 flex-wrap">
 						{file.metadata?.version && (

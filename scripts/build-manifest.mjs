@@ -20,6 +20,8 @@ async function* walk(dir) {
 
 const pick = (v) => (typeof v === "string" && v.trim() ? v.trim() : undefined);
 
+const pickBool = (v) => (typeof v === "boolean" ? v : undefined);
+
 // ISO string of a parseable date, otherwise undefined
 const pickDate = (v) => {
 	const s = pick(v);
@@ -37,6 +39,7 @@ async function readMetadata(dir) {
 		const title = pick(json.title);
 		if (title) {
 			const description = pick(json.description);
+			const important = pickBool(json.important);
 			const createdAt = pickDate(json.createdAt);
 			const versionNumber = pick(json.version?.version);
 			const versionAt = pickDate(json.version?.atTimestamp);
@@ -46,6 +49,7 @@ async function readMetadata(dir) {
 			const prNumber = Number.isInteger(json.approved?.prNumber) && json.approved.prNumber > 0 ? json.approved.prNumber : undefined;
 			metadata = {
 				title,
+				...(important && { important }),
 				...(description && { description }),
 				...(versionNumber && versionAt && { version: { version: versionNumber, atTimestamp: versionAt } }),
 				...(createdAt && { createdAt }),

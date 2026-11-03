@@ -14,6 +14,7 @@ export type ManifestFile = {
 
 export type ManifestFileMetadata = {
 	title: string;
+	important?: boolean;
 	description?: string;
 	version?: {
 		version: string;
