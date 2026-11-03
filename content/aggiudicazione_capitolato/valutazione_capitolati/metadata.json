@@ -1,4 +1,17 @@
 {
 	"title": "Valutazione capitolati",
-	"description": ""
+	"description": "",
+	"createdAt": "2026-10-30T15:20:56Z",
+	"important": true,
+	"approved": {
+		"approvedAt": "2026-10-30T15:19:54Z",
+		"by": ["PGgabbo"],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/9",
+		"prNumber": 9
+	},
+
+	"version": {
+		"version": "1.0.0",
+		"atTimestamp": "2026-10-30T15:19:54Z"
+	}
 }

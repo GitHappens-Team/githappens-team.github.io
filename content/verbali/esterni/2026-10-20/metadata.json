@@ -1,4 +1,17 @@
 {
 	"title": "Verbale esterno del 20 ottobre 2026 - Firmato dall'azienda",
-	"description": "Primo incontro con Sanmarco Informatica: comunicazione, uso di API AI open-weight, canali di test, privacy e gestione degli errori."
+	"description": "Primo incontro con Sanmarco Informatica: comunicazione, uso di API AI open-weight, canali di test, privacy e gestione degli errori.",
+	"version": {
+		"version": "0.0.3",
+		"atTimestamp": "2026-10-23T00:00:00Z"
+	},
+	"createdAt": "2026-10-20T00:00:00Z",
+	"approved": {
+		"approvedAt": "2026-10-30T14:29:04Z",
+		"by": [
+			"MrFreex"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/5",
+		"prNumber": 5
+	}
 }

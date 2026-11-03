@@ -1,4 +1,17 @@
 {
 	"title": "Verbale esterno del 26 ottobre 2026 - Firmato dall'azienda",
-	"description": "Primo incontro con Halue s.r.l."
+	"description": "Primo incontro con Halue s.r.l.",
+	"version": {
+		"version": "0.0.4",
+		"atTimestamp": "2026-10-29T00:00:00Z"
+	},
+	"createdAt": "2026-10-26T00:00:00Z",
+	"approved": {
+		"approvedAt": "2026-11-03T13:36:11Z",
+		"by": [
+			"monacolama"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/14",
+		"prNumber": 14
+	}
 }
