@@ -6,7 +6,7 @@ const members: Record<string, string> = {
 	monacolama: "Cristiano Antoniazzo",
 	giangrinovero: "Gianmaria Grinovero",
 	gchomy: "Tommaso Caon",
-	FAnoFOUR: "Antonio Tang",
+	FAnoFOUR: "Antonio Hai Xu Tang",
 };
 
 export type Member = { username: string; name: string };
@@ -26,7 +26,7 @@ export function displayName(username: string): string {
 	return rest.length ? `${first[0]}. ${rest.join(" ")}` : first;
 }
 
-export type Role = "Responsabile" | "Amministratore" | "Verificatore" | "Redattore";
+export type Role = "Responsabile" | "Amministratore" | "Verificatore" | "Redattore" | "Analista" | "Progettista";
 
 export type Rotation = {
 	/** first day in charge, YYYY-MM-DD */
@@ -51,6 +51,19 @@ export const rotations: Rotation[] = [
 			giangrinovero: "Redattore",
 			FAnoFOUR: "Redattore",
 			MrFreex: "Redattore",
+		},
+	},
+	{
+		from: "2026-11-10",
+		to: "2026-11-24",
+		roles: {
+			marameo0: "Analista",
+			gchomy: "Verificatore",
+			monacolama: "Responsabile",
+			PGgabbo: "Analista",
+			giangrinovero: "Analista",
+			FAnoFOUR: "Amministratore",
+			MrFreex: "Progettista",
 		},
 	},
 ];
