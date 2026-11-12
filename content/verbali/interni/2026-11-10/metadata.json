@@ -1,0 +1,18 @@
+{
+	"title": "Verbale interno del 10 novembre 2026",
+	"description": "Riunione interna del team. Assegnazione ruoli Sprint 1, impostazioni GitHub, organizzazione Jira e domande per Halue",
+	"createdAt": "2026-11-10T00:00:00Z",
+	"version": {
+		"version": "1.0.0",
+		"atTimestamp": "2026-11-11T00:00:00Z"
+	},
+	"approved": {
+		"approvedAt": "2026-11-12T12:51:15Z",
+		"by": [
+			"monacolama",
+			"gchomy"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/35",
+		"prNumber": 35
+	}
+}
