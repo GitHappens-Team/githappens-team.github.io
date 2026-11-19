@@ -1,0 +1,17 @@
+{
+	"title": "Verbale interno del 17 novembre 2026",
+	"description": "Riunione interna del team. Esperimento didattico-tecnologico sullo stack individuato (Supabase, Drizzle, OAuth), configurazione Vercel Pro, avanzamento documentazione, automazione glossario e preparazione incontro con Halue",
+	"version": {
+		"version": "0.0.1",
+		"atTimestamp": "2026-11-17T00:00:00Z"
+	},
+	"createdAt": "2026-11-19T12:05:11Z",
+	"approved": {
+		"approvedAt": "2026-11-18T11:02:38Z",
+		"by": [
+			"gchomy"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/40",
+		"prNumber": 40
+	}
+}
