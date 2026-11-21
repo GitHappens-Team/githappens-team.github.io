@@ -1,0 +1,18 @@
+{
+	"title": "Analisi dei requisiti",
+	"description": "Analisi dei requisiti e casi d'uso relativa al capitolato C8 - Sonar",
+	"important": true,
+	"version": {
+		"version": "0.0.3",
+		"atTimestamp": "2026-11-19T15:19:54Z"
+	},
+	"createdAt": "2026-11-21T13:37:08Z",
+	"approved": {
+		"approvedAt": "2026-11-21T13:36:14Z",
+		"by": [
+			"gchomy"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/45",
+		"prNumber": 45
+	}
+}
