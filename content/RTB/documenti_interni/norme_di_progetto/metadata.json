@@ -1,0 +1,18 @@
+{
+	"title": "Norme di progetto",
+	"description": "",
+	"important": true,
+	"version": {
+		"version": "0.1.0",
+		"atTimestamp": "2026-11-07T15:19:54Z"
+	},
+	"createdAt": "2026-11-22T10:12:07Z",
+	"approved": {
+		"approvedAt": "2026-11-15T19:42:06Z",
+		"by": [
+			"gchomy"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/39",
+		"prNumber": 39
+	}
+}
