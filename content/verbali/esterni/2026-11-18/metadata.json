@@ -1,0 +1,17 @@
+{
+	"title": "Verbale esterno del 18 novembre 2026",
+	"description": "Secondo incontro con Halue",
+	"createdAt": "2026-11-18T00:00:00Z",
+	"version": {
+		"version": "0.0.1",
+		"atTimestamp": "2026-11-18T00:00:00Z"
+	},
+	"approved": {
+		"approvedAt": "2026-11-22T13:33:08Z",
+		"by": [
+			"gchomy"
+		],
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/44",
+		"prNumber": 44
+	}
+}
