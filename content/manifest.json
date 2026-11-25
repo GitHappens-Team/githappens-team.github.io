@@ -7,24 +7,25 @@
           "name": "lettera_candidatura",
           "path": "candidatura/lettera_candidatura/lettera_candidatura.pdf",
           "folder": "lettera_candidatura",
-          "size": 567525,
-          "modified": "2026-11-03T16:30:47.612Z",
+          "size": 572192,
+          "modified": "2026-11-25T14:46:36.278Z",
           "metadata": {
             "title": "Lettera di presentazione",
             "important": true,
-            "description": "Lettera di candidatura del gruppo Git Happens per il capitolato C0 AIRA di Sanmarco Informatica S.p.A.",
+            "description": "Lettera di candidatura del gruppo Git Happens per il capitolato C8 Sonar di Halue S.r.l. Società Benefit",
             "version": {
               "version": "1.0.0",
-              "atTimestamp": "2026-10-30T15:28:35.000Z"
+              "atTimestamp": "2026-11-03T18:30:00.000Z"
             },
             "createdAt": "2026-10-30T15:28:35.000Z",
             "approved": {
-              "approvedAt": "2026-10-30T15:28:35.000Z",
+              "approvedAt": "2026-11-03T18:18:19.000Z",
               "by": [
-                "marameo0"
+                "marameo0",
+                "PGgabbo"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/11",
-              "prNumber": 11
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/31",
+              "prNumber": 31
             }
           }
         },
@@ -32,8 +33,8 @@
           "name": "preventivo_costi",
           "path": "candidatura/preventivo_costi/preventivo_costi.pdf",
           "folder": "preventivo_costi",
-          "size": 562682,
-          "modified": "2026-11-03T16:30:47.614Z",
+          "size": 562893,
+          "modified": "2026-11-25T14:46:36.279Z",
           "metadata": {
             "title": "Dichiarazione impegni",
             "important": true,
@@ -43,12 +44,12 @@
             },
             "createdAt": "2026-10-30T15:03:01.000Z",
             "approved": {
-              "approvedAt": "2026-11-03T15:52:54.000Z",
+              "approvedAt": "2026-11-03T19:58:37.000Z",
               "by": [
-                "PGgabbo"
+                "monacolama"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/19",
-              "prNumber": 19
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
             }
           }
         },
@@ -56,27 +57,107 @@
           "name": "valutazione_capitolati",
           "path": "candidatura/valutazione_capitolati/valutazione_capitolati.pdf",
           "folder": "valutazione_capitolati",
-          "size": 577195,
-          "modified": "2026-11-03T16:30:47.616Z",
+          "size": 617609,
+          "modified": "2026-11-25T14:46:36.282Z",
           "metadata": {
             "title": "Valutazione capitolati",
             "important": true,
             "version": {
               "version": "1.0.0",
-              "atTimestamp": "2026-10-30T15:19:54.000Z"
+              "atTimestamp": "2026-11-03T15:19:54.000Z"
             },
             "createdAt": "2026-10-30T15:20:56.000Z",
             "approved": {
-              "approvedAt": "2026-10-30T15:19:54.000Z",
+              "approvedAt": "2026-11-03T19:58:37.000Z",
               "by": [
-                "PGgabbo"
+                "monacolama"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/9",
-              "prNumber": 9
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
             }
           }
         }
-      ]
+      ],
+      "past": true
+    },
+    {
+      "id": "RTB",
+      "files": [
+        {
+          "name": "analisi_requisiti",
+          "path": "RTB/documenti_esterni/analisi_requisiti/analisi_requisiti.pdf",
+          "folder": "documenti_esterni/analisi_requisiti",
+          "size": 617089,
+          "modified": "2026-11-25T14:46:36.269Z",
+          "metadata": {
+            "title": "Analisi dei requisiti",
+            "important": true,
+            "description": "Analisi dei requisiti e casi d'uso relativa al capitolato C8 - Sonar",
+            "version": {
+              "version": "0.0.3",
+              "atTimestamp": "2026-11-19T15:19:54.000Z"
+            },
+            "createdAt": "2026-11-21T13:37:08.000Z",
+            "approved": {
+              "approvedAt": "2026-11-21T13:36:14.000Z",
+              "by": [
+                "gchomy"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/45",
+              "prNumber": 45
+            }
+          }
+        },
+        {
+          "name": "piano_di_progetto",
+          "path": "RTB/documenti_esterni/piano_di_progetto/piano_di_progetto.pdf",
+          "folder": "documenti_esterni/piano_di_progetto",
+          "size": 798729,
+          "modified": "2026-11-25T14:46:36.272Z",
+          "metadata": {
+            "title": "Piano di progetto",
+            "description": "Pianificazione e gestione delle attività per la realizzazione del progetto",
+            "version": {
+              "version": "0.0.4",
+              "atTimestamp": "2026-11-19T00:00:00.000Z"
+            },
+            "createdAt": "2026-11-14T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-25T14:11:52.000Z",
+              "by": [
+                "marameo0"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/48",
+              "prNumber": 48
+            }
+          }
+        },
+        {
+          "name": "norme_di_progetto",
+          "path": "RTB/documenti_interni/norme_di_progetto/norme_di_progetto.pdf",
+          "folder": "documenti_interni/norme_di_progetto",
+          "size": 686214,
+          "modified": "2026-11-25T14:46:36.274Z",
+          "metadata": {
+            "title": "Norme di progetto",
+            "important": true,
+            "version": {
+              "version": "0.1.0",
+              "atTimestamp": "2026-11-07T15:19:54.000Z"
+            },
+            "createdAt": "2026-11-22T10:12:07.000Z",
+            "approved": {
+              "approvedAt": "2026-11-15T19:42:06.000Z",
+              "by": [
+                "gchomy"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/39",
+              "prNumber": 39
+            }
+          }
+        }
+      ],
+      "index": 0
     },
     {
       "id": "verbali",
@@ -86,7 +167,7 @@
           "path": "verbali/esterni/2026-10-20/2026-10-20.pdf",
           "folder": "esterni/2026-10-20",
           "size": 579361,
-          "modified": "2026-11-03T09:27:14.788Z",
+          "modified": "2026-11-03T21:26:21.805Z",
           "metadata": {
             "title": "Verbale esterno del 20 ottobre 2026 - Firmato dall'azienda",
             "description": "Primo incontro con Sanmarco Informatica: comunicazione, uso di API AI open-weight, canali di test, privacy e gestione degli errori.",
@@ -110,7 +191,7 @@
           "path": "verbali/esterni/2026-10-22/2026-10-22.pdf",
           "folder": "esterni/2026-10-22",
           "size": 575275,
-          "modified": "2026-10-30T14:38:29.545Z",
+          "modified": "2026-11-03T21:26:21.808Z",
           "metadata": {
             "title": "Verbale esterno del 22 ottobre 2026 - Firmato dall'azienda",
             "description": "Primo incontro con Vimar S.p.A.",
@@ -134,7 +215,7 @@
           "path": "verbali/esterni/2026-10-26/2026-10-26.pdf",
           "folder": "esterni/2026-10-26",
           "size": 1056127,
-          "modified": "2026-11-03T16:01:16.303Z",
+          "modified": "2026-11-03T21:26:21.812Z",
           "metadata": {
             "title": "Verbale esterno del 26 ottobre 2026 - Firmato dall'azienda",
             "description": "Primo incontro con Halue s.r.l.",
@@ -158,7 +239,7 @@
           "path": "verbali/esterni/2026-10-27/2026-10-27.pdf",
           "folder": "esterni/2026-10-27",
           "size": 999231,
-          "modified": "2026-10-30T14:38:29.547Z",
+          "modified": "2026-11-03T21:26:21.814Z",
           "metadata": {
             "title": "Verbale esterno del 27 ottobre 2026 - Firmato dall'azienda",
             "description": "Primo incontro con Miriade s.r.l.",
@@ -178,26 +259,74 @@
           }
         },
         {
+          "name": "2026-11-11",
+          "path": "verbali/esterni/2026-11-11/2026-11-11.pdf",
+          "folder": "esterni/2026-11-11",
+          "size": 1063832,
+          "modified": "2026-11-25T14:46:36.288Z",
+          "metadata": {
+            "title": "Verbale esterno del 11 novembre 2026 - Firmato dall'azienda",
+            "description": "Primo incontro con Halue",
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-12T00:00:00.000Z"
+            },
+            "createdAt": "2026-11-11T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-13T15:19:03.000Z",
+              "by": [
+                "gchomy"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/37",
+              "prNumber": 37
+            }
+          }
+        },
+        {
+          "name": "2026-11-18",
+          "path": "verbali/esterni/2026-11-18/2026-11-18.pdf",
+          "folder": "esterni/2026-11-18",
+          "size": 1084161,
+          "modified": "2026-11-25T14:46:36.291Z",
+          "metadata": {
+            "title": "Verbale esterno del 18 novembre 2026 - Firmato dall'azienda",
+            "description": "Secondo incontro con Halue",
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-22T00:00:00.000Z"
+            },
+            "createdAt": "2026-11-18T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-23T15:18:58.000Z",
+              "by": [
+                "gitHappensUser"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/47",
+              "prNumber": 47
+            }
+          }
+        },
+        {
           "name": "2026-10-16",
           "path": "verbali/interni/2026-10-16/2026-10-16.pdf",
           "folder": "interni/2026-10-16",
-          "size": 540756,
-          "modified": "2026-11-03T16:30:47.619Z",
+          "size": 566502,
+          "modified": "2026-11-25T14:46:36.293Z",
           "metadata": {
             "title": "Verbale interno del 16 ottobre 2026",
             "description": "Prima riunione interna. Accordi iniziali sul way of working e le piattaforme di comunicazione, sondaggio sull'interesse del team nei vari capitolati.",
             "version": {
-              "version": "0.0.3",
-              "atTimestamp": "2026-10-17T00:00:00.000Z"
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-03T00:00:00.000Z"
             },
             "createdAt": "2026-10-16T00:00:00.000Z",
             "approved": {
-              "approvedAt": "2026-11-03T11:10:15.000Z",
+              "approvedAt": "2026-11-03T19:58:37.000Z",
               "by": [
-                "MrFreex"
+                "monacolama"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/12",
-              "prNumber": 12
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
             }
           }
         },
@@ -205,23 +334,23 @@
           "name": "2026-10-20",
           "path": "verbali/interni/2026-10-20/2026-10-20.pdf",
           "folder": "interni/2026-10-20",
-          "size": 537954,
-          "modified": "2026-11-03T16:30:47.622Z",
+          "size": 565265,
+          "modified": "2026-11-25T14:46:36.295Z",
           "metadata": {
             "title": "Verbale interno del 20 ottobre 2026",
             "description": "Riunione interna del team. Gestione ruoli del periodo, creazione di template di verbale e definizione prossimo incontro.",
             "version": {
-              "version": "0.0.4",
-              "atTimestamp": "2026-10-23T00:00:00.000Z"
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-03T00:00:00.000Z"
             },
             "createdAt": "2026-10-21T00:00:00.000Z",
             "approved": {
-              "approvedAt": "2026-11-03T11:10:15.000Z",
+              "approvedAt": "2026-11-03T19:58:37.000Z",
               "by": [
-                "MrFreex"
+                "monacolama"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/12",
-              "prNumber": 12
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
             }
           }
         },
@@ -229,23 +358,96 @@
           "name": "2026-10-30",
           "path": "verbali/interni/2026-10-30/2026-10-30.pdf",
           "folder": "interni/2026-10-30",
-          "size": 528847,
-          "modified": "2026-11-03T16:30:47.625Z",
+          "size": 555839,
+          "modified": "2026-11-25T14:46:36.297Z",
           "metadata": {
             "title": "Verbale interno del 30 ottobre 2026",
             "description": "Riunione interna del team. Revisione del periodo precedente, revisione della documentazione di candidatura, aggiornamento del sito, preparazione diario di bordo, stesura e-mail di candidatura.",
             "version": {
-              "version": "0.0.2",
-              "atTimestamp": "2026-10-30T00:00:00.000Z"
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-03T00:00:00.000Z"
             },
             "createdAt": "2026-10-30T00:00:00.000Z",
             "approved": {
-              "approvedAt": "2026-11-03T11:10:15.000Z",
+              "approvedAt": "2026-11-03T19:58:37.000Z",
               "by": [
-                "MrFreex"
+                "monacolama"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/12",
-              "prNumber": 12
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
+            }
+          }
+        },
+        {
+          "name": "2026-11-03",
+          "path": "verbali/interni/2026-11-03/2026-11-03.pdf",
+          "folder": "interni/2026-11-03",
+          "size": 584915,
+          "modified": "2026-11-25T14:46:36.299Z",
+          "metadata": {
+            "title": "Verbale interno del 03 novembre 2026",
+            "description": "Riunione interna del team. Organizzazione dopo correzioni del professore",
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-03T00:00:00.000Z"
+            },
+            "createdAt": "2026-11-03T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-03T19:58:37.000Z",
+              "by": [
+                "monacolama"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
+            }
+          }
+        },
+        {
+          "name": "2026-11-10",
+          "path": "verbali/interni/2026-11-10/2026-11-10.pdf",
+          "folder": "interni/2026-11-10",
+          "size": 569639,
+          "modified": "2026-11-25T14:46:36.301Z",
+          "metadata": {
+            "title": "Verbale interno del 10 novembre 2026",
+            "description": "Riunione interna del team. Assegnazione ruoli Sprint 1, impostazioni GitHub, organizzazione Jira e domande per Halue",
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-11T00:00:00.000Z"
+            },
+            "createdAt": "2026-11-10T00:00:00.000Z",
+            "approved": {
+              "approvedAt": "2026-11-12T12:51:15.000Z",
+              "by": [
+                "monacolama",
+                "gchomy"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/35",
+              "prNumber": 35
+            }
+          }
+        },
+        {
+          "name": "2026-11-17",
+          "path": "verbali/interni/2026-11-17/2026-11-17.pdf",
+          "folder": "interni/2026-11-17",
+          "size": 562957,
+          "modified": "2026-11-25T14:46:36.304Z",
+          "metadata": {
+            "title": "Verbale interno del 17 novembre 2026",
+            "description": "Riunione interna del team. Esperimento didattico-tecnologico sullo stack individuato (Supabase, Drizzle, OAuth), configurazione Vercel Pro, avanzamento documentazione, automazione glossario e preparazione incontro con Halue",
+            "version": {
+              "version": "1.0.0",
+              "atTimestamp": "2026-11-19T00:00:00.000Z"
+            },
+            "createdAt": "2026-11-19T12:05:11.000Z",
+            "approved": {
+              "approvedAt": "2026-11-18T11:02:38.000Z",
+              "by": [
+                "gchomy"
+              ],
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/40",
+              "prNumber": 40
             }
           }
         }
@@ -258,8 +460,8 @@
           "name": "definizione",
           "path": "way_of_working/definizione/definizione.pdf",
           "folder": "definizione",
-          "size": 639658,
-          "modified": "2026-11-03T16:30:47.627Z",
+          "size": 639998,
+          "modified": "2026-11-25T14:46:36.306Z",
           "metadata": {
             "title": "Definizione del Way Of Working",
             "important": true,
@@ -270,12 +472,12 @@
             },
             "createdAt": "2026-10-28T15:43:52.000Z",
             "approved": {
-              "approvedAt": "2026-10-28T15:42:45.000Z",
+              "approvedAt": "2026-11-03T19:58:37.000Z",
               "by": [
-                "PGgabbo"
+                "monacolama"
               ],
-              "prLink": "https://github.com/GitHappens-Team/documents/pull/4",
-              "prNumber": 4
+              "prLink": "https://github.com/GitHappens-Team/documents/pull/32",
+              "prNumber": 32
             }
           }
         }

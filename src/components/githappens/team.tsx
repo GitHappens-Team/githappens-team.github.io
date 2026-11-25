@@ -48,7 +48,7 @@ function Callout({ index, today }: { index: number; today: number }) {
 	if (status === "current") {
 		const left = dayNumber(rotation.to) - today;
 		const when = left === 1 ? "domani" : `tra ${left} giorni`;
-		call = { kicker: "in corso", title: `Cambiano il ${to}`, sub: `Cioè ${when}. In carica dal ${from}.`, bg: "bg-primary" };
+		call = { kicker: "in corso", title: `Prossima rotazione: ${to}`, sub: `Cioè ${when}. In carica dal ${from}.`, bg: "bg-primary" };
 	} else if (status === "future") {
 		call = { kicker: "in programma", title: `Cominciano il ${from}`, sub: `In carica fino al ${to}.`, bg: "bg-yellow-tint" };
 	} else if (isLatest) {
