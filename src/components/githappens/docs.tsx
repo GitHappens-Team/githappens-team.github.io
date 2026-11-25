@@ -200,27 +200,52 @@ export default function Docs() {
 	const { status, manifest } = useManifest();
 	const { query } = useSearch();
 	const groups = useMemo(() => (manifest ? filterGroups(manifest.groups, query) : []), [manifest, query]);
+	const [current, past] = useMemo(() => {
+		let all = [...groups].sort((a, b) => {
+			if (a.index !== undefined && b.index !== undefined) return a.index - b.index;
+			if (a.index !== undefined) return -1;
+			if (b.index !== undefined) return 1;
+
+			return a.id.localeCompare(b.id);
+		});
+
+		return [all.filter((v) => !v.past), all.filter((v) => v.past)];
+	}, [groups]);
 	const seen = useSeenDocuments(manifest);
 	const [view, setView] = useViewMode();
 
 	return (
 		<SeenDocumentsProvider value={seen}>
-			<section className="flex flex-col gap-4 mb-10" id="docs">
+			<section className="flex flex-col gap-4" id="docs">
 				{status === "loading" && <Message role="status">Carico i documenti…</Message>}
 				{status === "error" && <Message role="alert">Non riesco a caricare i documenti. Riprova tra poco.</Message>}
 				{manifest &&
 					(manifest.groups.length ? (
 						<>
 							<CategoryAnchors groups={groups} view={view} onViewChange={setView} />
-							{groups.length ? (
+							{current.length ? (
 								<div className="flex flex-col gap-12 p-4">
-									{groups.map((g) => (
+									{current.map((g) => (
 										<DocumentCategory key={g.id} category={g} view={view} />
 									))}
 								</div>
 							) : (
 								<Message role="status">Nessun documento corrisponde a “{query.trim()}”.</Message>
 							)}
+
+							<div className="border-t-2 border-ink-muted bg-yellow/10 p-6">
+								<h2 className="font-bold text-4xl ml-2 mt-4">Categorie passate</h2>
+
+								{past.length ? (
+									<div className="flex flex-col gap-12 p-4">
+										{past.map((g) => (
+											<DocumentCategory key={g.id} category={g} view={view} />
+										))}
+									</div>
+								) : (
+									<Message role="status">Nessun documento corrisponde a “{query.trim()}”.</Message>
+								)}
+							</div>
 						</>
 					) : (
 						<Message>Nessun documento disponibile per ora.</Message>

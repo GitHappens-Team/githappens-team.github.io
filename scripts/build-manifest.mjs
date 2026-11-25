@@ -63,6 +63,29 @@ async function readMetadata(dir) {
 	return metadata;
 }
 
+const grMetadataCache = new Map();
+async function readGroupMetadata(group) {
+	if (grMetadataCache.has(group)) return grMetadataCache.get(group);
+
+	let metadata;
+
+	try {
+		const json = JSON.parse(await readFile(path.join(root, group, "metadata.json"), "utf8"));
+		const index = Number.isInteger(json.index) && json.index >= 0 ? json.index : undefined;
+		const past = pickBool(json.past);
+
+		metadata = {
+			...(index !== undefined && { index }),
+			...(past && { past }),
+		};
+	} catch (error) {
+		if (error.code !== "ENOENT") console.warn(`metadata: ignoring ${path.join(root, group, "metadata.json")} (${error.message})`);
+	}
+
+	grMetadataCache.set(group, metadata);
+	return metadata;
+}
+
 const groups = new Map();
 for await (const file of walk(root)) {
 	if (path.extname(file).toLowerCase() !== ".pdf") continue;
@@ -70,7 +93,7 @@ for await (const file of walk(root)) {
 	const [group, ...rest] = rel.split("/");
 	if (rest.length === 0) continue; // ignore PDFs not inside a group folder
 	const { size, mtime } = await stat(file);
-	const list = groups.get(group) ?? [];
+	const { list, metadata: grMetadata } = groups.get(group) ?? { list: [], metadata: await readGroupMetadata(group) };
 	const metadata = await readMetadata(path.dirname(file));
 	list.push({
 		name: path.basename(file, path.extname(file)),
@@ -80,15 +103,16 @@ for await (const file of walk(root)) {
 		modified: mtime.toISOString(),
 		...(metadata && { metadata }),
 	});
-	groups.set(group, list);
+	groups.set(group, { list, metadata: grMetadata });
 }
 
 const manifest = {
 	groups: [...groups.entries()]
 		.sort(([a], [b]) => a.localeCompare(b))
-		.map(([id, files]) => ({
+		.map(([id, { list, metadata }]) => ({
 			id,
-			files: files.sort((a, b) => a.path.localeCompare(b.path)),
+			files: list.sort((a, b) => a.path.localeCompare(b.path)),
+			...metadata,
 		})),
 };
 

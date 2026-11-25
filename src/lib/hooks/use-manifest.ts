@@ -33,6 +33,8 @@ export type Category = {
 	/** top-level folder name inside content/ */
 	id: string;
 	files: ManifestFile[];
+	index?: number;
+	past?: boolean;
 };
 
 export type Manifest = {
