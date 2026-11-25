@@ -7,11 +7,11 @@
 		"atTimestamp": "2026-11-19T00:00:00Z"
 	},
 	"approved": {
-		"approvedAt": "2026-11-22T12:15:35Z",
+		"approvedAt": "2026-11-25T14:11:52Z",
 		"by": [
-			"gchomy"
+			"marameo0"
 		],
-		"prLink": "https://github.com/GitHappens-Team/documents/pull/38",
-		"prNumber": 38
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/48",
+		"prNumber": 48
 	}
 }
