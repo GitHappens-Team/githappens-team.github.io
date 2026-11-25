@@ -66,4 +66,17 @@ export const rotations: Rotation[] = [
 			MrFreex: "Progettista",
 		},
 	},
+	{
+		from: "2026-11-25",
+		to: "2026-12-8",
+		roles: {
+			marameo0: "Verificatore",
+			gchomy: "Analista",
+			monacolama: "Analista",
+			PGgabbo: "Responsabile",
+			giangrinovero: "Progettista",
+			FAnoFOUR: "Analista",
+			MrFreex: "Progettista",
+		},
+	},
 ];
