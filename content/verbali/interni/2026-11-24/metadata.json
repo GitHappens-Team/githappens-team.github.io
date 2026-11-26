@@ -2,16 +2,16 @@
 	"title": "Verbale interno del 24 novembre 2026",
 	"description": "Riunione interna del team. Retrospettiva dello Sprint 1, assegnazione dei ruoli per lo Sprint 2, convenzioni per i casi d'uso e i diagrammi PlantUML, collegamento allo store Shopify tramite token, avvio della Specifica Tecnica e preparazione dell'incontro con Halue del 02/12/2026",
 	"version": {
-		"version": "0.0.1",
-		"atTimestamp": "2026-11-25T00:00:00Z"
+		"version": "1.0.0",
+		"atTimestamp": "2026-11-26T00:00:00Z"
 	},
 	"createdAt": "2026-11-26T11:49:07Z",
 	"approved": {
-		"approvedAt": "2026-11-26T11:45:35Z",
+		"approvedAt": "2026-11-26T15:23:12Z",
 		"by": [
 			"marameo0"
 		],
-		"prLink": "https://github.com/GitHappens-Team/documents/pull/49",
-		"prNumber": 49
+		"prLink": "https://github.com/GitHappens-Team/documents/pull/51",
+		"prNumber": 51
 	}
 }
